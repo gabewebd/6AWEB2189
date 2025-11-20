@@ -1,0 +1,161 @@
+.cv-content {
+  margin-top: 20px;
+}
+
+.profile-section,
+.skills-section,
+.technical-skills {
+  margin-bottom: 50px;
+  padding: 25px 30px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #f0f7f8, #e8f0f1);
+  background-color: #f0f7f8;
+  border: 2px solid var(--color-section-border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease-in-out, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-section:hover,
+.skills-section:hover,
+.technical-skills:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-accent-gradient-start);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-family: "BBH Sans Hegarty", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 1.8px;
+  margin-bottom: 18px;
+  padding-bottom: 8px;
+  color: #000000;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: initial;
+  text-transform: uppercase;
+  line-height: 1.2;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent-gradient-start), var(--color-accent-gradient-end));
+  border-radius: 2px;
+}
+
+.profile-text {
+  font-size: 1.0rem;
+  color: var(--color-text-body);
+  text-align: justify;
+  line-height: 1.7;
+  font-weight: 400;
+  background-color: transparent;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 15px;
+}
+
+.skills-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.skills-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: var(--color-text-body);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.skills-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent-gradient-start);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.skills-list li strong {
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+/* --- Media Queries (Skills Specific) --- */
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.4rem;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .profile-section,
+  .skills-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 2px solid var(--color-section-border);
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.2rem;
+  }
+  .profile-text,
+  .skills-list li {
+    font-size: 0.85rem;
+  }
+}
+
+@media print {
+  .section-title,
+  .section-title::after {
+    color: #333 !important;
+    background: none !important;
+    -webkit-text-fill-color: #333 !important;
+  }
+  .section-title::after {
+    background-color: #333 !important;
+    height: 1px !important;
+  }
+  .profile-section,
+  .skills-section {
+    border: 1px solid #000 !important;
+    border-radius: 8px !important;
+    transform: none !important;
+    padding: 15px !important;
+    background: #f0f0f0 !important;
+  }
+  .profile-text,
+  .skills-list li {
+    font-weight: 400 !important;
+  }
+  .skills-list li::before {
+    content: "✦" !important;
+    color: #333 !important;
+  }
+}

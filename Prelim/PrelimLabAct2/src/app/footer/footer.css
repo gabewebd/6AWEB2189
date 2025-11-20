@@ -1,0 +1,283 @@
+.section-title {
+  font-family: "BBH Sans Hegarty", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 1.8px;
+  margin-bottom: 18px;
+  padding-bottom: 8px;
+  color: #000000;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: initial;
+  text-transform: uppercase;
+  line-height: 1.2;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent-gradient-start), var(--color-accent-gradient-end));
+  border-radius: 2px;
+}
+
+.technical-skills {
+  /* Base Container Styling (Same as profile/skills sections) */
+  margin-top: 30px;
+  margin-bottom: 50px;
+  padding: 25px 30px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #f0f7f8, #e8f0f1);
+  background-color: #f0f7f8;
+  border: 2px solid var(--color-section-border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease-in-out, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.technical-skills:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-accent-gradient-start);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tech-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.tech-category {
+  background: #ffffff;
+  background-color: #ffffff;
+  padding: 15px 20px;
+  border-radius: 6px;
+  border-left: 5px solid var(--color-accent-gradient-start);
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.tech-category:hover {
+  background: #f7f9fb;
+  background-color: #f7f9fb;
+  border-left-color: var(--color-accent-gradient-end);
+  transform: translateX(5px);
+}
+
+.category-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.tech-items {
+  font-size: 0.9rem;
+  color: var(--color-text-body);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Application Footer/Copyright Styles */
+.copyright-footer {
+  text-align: center;
+  margin-top: -30px;
+  margin-bottom: 20px;
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  font-weight: 300;
+}
+
+.copyright-footer p {
+    margin-top: 15px;
+}
+
+.footer-divider {
+  border: none;
+  height: 1px;
+  background-color: transparent;
+  background-image: repeating-linear-gradient(to right, 
+    var(--color-text-light) 0, 
+    var(--color-text-light) 5px, 
+    transparent 5px, 
+    transparent 10px);
+  background-size: 10px 1px;
+  margin: 20px auto 0;
+  width: 50%;
+}
+
+/* --- Media Queries (Technical Skills Specific) --- */
+
+@media (max-width: 768px) {
+  /* Ensures consistency with .profile-section and .skills-section on tablets/midscreens */
+  .technical-skills {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 2px solid var(--color-section-border);
+    border-radius: 8px;
+  }
+  .tech-category {
+    border-left: 5px solid var(--color-accent-gradient-start);
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-items {
+    font-size: 0.85rem;
+  }
+}
+
+@media print {
+  /* Ensures consistency with .profile-section and .skills-section for printing */
+  .technical-skills {
+    border: 1px solid #000 !important;
+    border-radius: 8px !important;
+    transform: none !important;
+    padding: 15px !important;
+    background: #f0f0f0 !important;
+  }
+  .tech-category {
+    background-color: #ffffff !important;
+    background: none !important;
+    border-left: 5px solid #000 !important;
+  }
+  .tech-items {
+    font-weight: 400 !important;
+  }
+  .copyright-footer {
+    display: none;
+  }
+}.technical-skills {
+  /* Base Container Styling (Same as profile/skills sections) */
+  margin-top: 30px;
+  margin-bottom: 50px;
+  padding: 25px 30px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #f0f7f8, #e8f0f1);
+  background-color: #f0f7f8;
+  border: 2px solid var(--color-section-border);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease-in-out, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.technical-skills:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-accent-gradient-start);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tech-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.tech-category {
+  background: #ffffff;
+  background-color: #ffffff;
+  padding: 15px 20px;
+  border-radius: 6px;
+  border-left: 5px solid var(--color-accent-gradient-start);
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.tech-category:hover {
+  background: #f7f9fb;
+  background-color: #f7f9fb;
+  border-left-color: var(--color-accent-gradient-end);
+  transform: translateX(5px);
+}
+
+.category-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.tech-items {
+  font-size: 0.9rem;
+  color: var(--color-text-body);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Application Footer/Copyright Styles */
+.copyright-footer {
+  text-align: center;
+  margin-top: -30px;
+  margin-bottom: 20px;
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  font-weight: 300;
+}
+
+.copyright-footer p {
+    margin-top: 15px;
+}
+
+.footer-divider {
+  border: none;
+  height: 1px;
+  background-color: transparent;
+  background-image: repeating-linear-gradient(to right, 
+    var(--color-text-light) 0, 
+    var(--color-text-light) 5px, 
+    transparent 5px, 
+    transparent 10px);
+  background-size: 10px 1px;
+  margin: 20px auto 0;
+  width: 50%;
+}
+
+/* --- Media Queries (Technical Skills Specific) --- */
+
+@media (max-width: 768px) {
+  /* Ensures consistency with .profile-section and .skills-section on tablets/midscreens */
+  .technical-skills {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 2px solid var(--color-section-border);
+    border-radius: 8px;
+  }
+  .tech-category {
+    border-left: 5px solid var(--color-accent-gradient-start);
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-items {
+    font-size: 0.85rem;
+  }
+}
+
+@media print {
+  /* Ensures consistency with .profile-section and .skills-section for printing */
+  .technical-skills {
+    border: 1px solid #000 !important;
+    border-radius: 8px !important;
+    transform: none !important;
+    padding: 15px !important;
+    background: #f0f0f0 !important;
+  }
+  .tech-category {
+    background-color: #ffffff !important;
+    background: none !important;
+    border-left: 5px solid #000 !important;
+  }
+  .tech-items {
+    font-weight: 400 !important;
+  }
+  .copyright-footer {
+    display: none;
+  }
+}
