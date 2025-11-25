@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './data-binding.css',
 })
 export class DataBinding {
-
+  message = 'Data Binding Demonstration';
 }
