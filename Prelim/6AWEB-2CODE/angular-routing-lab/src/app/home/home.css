@@ -1,0 +1,46 @@
+:host {
+    display: block;
+    padding: 30px;
+    font-family: "Sniglet", system-ui;
+    font-weight: 400;
+    color: #c2185b;
+}
+
+.home-content {
+    text-align: center;
+}
+
+h1 {
+    color: #ff4081;
+    border-bottom: 3px solid #f8bbd0;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+img {
+    display: block;
+    margin: 0 auto 25px auto;
+    border-radius: 50%;
+    border: 5px solid #ffcc80;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    margin: 12px 0;
+    line-height: 1.6;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.highlighted {
+    display: inline-block;
+    background-color: #fffde7;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: 700;
+    border: 1px solid #ffcc80;
+    margin-top: 20px;
+}

@@ -1,0 +1,44 @@
+.main-card-wrapper {
+  display: block;
+  max-width: 450px;
+  margin: 30px auto;
+  padding: 0;
+  background-color: #ffe0f6;
+  box-shadow: 0 6px 12px rgba(255, 105, 180, 0.3);
+  border-radius: 25px;
+  font-family: "Sniglet", system-ui;
+  font-weight: 400;
+  color: #c2185b;
+  border: 4px dashed #f48fb1;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  padding: 15px 30px;
+  margin: 0;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  border-bottom: 2px solid #f8bbd0;
+  border-radius: 20px 20px 0 0;
+  background-color: #fce4ec;
+}
+
+nav a {
+  color: #ff4081;
+  text-decoration: none;
+  padding: 5px 10px;
+  margin: 0 8px;
+  transition: color 0.3s, background-color 0.3s, border-radius 0.3s;
+  font-weight: 700;
+}
+
+nav a:hover,
+nav a.active {
+  color: white;
+  background-color: #ff8a65;
+  border-radius: 20px;
+  text-shadow: 1px 1px 2px #e64a19;
+}
