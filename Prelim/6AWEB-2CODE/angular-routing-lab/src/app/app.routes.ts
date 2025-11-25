@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 import { Home } from './home/home';
-import { Directive } from '@angular/core';
 import { DataBinding } from './data-binding/data-binding';
+import { Directives } from './directives/directives';
 
 export const routes: Routes = [
   { path: '', component: Home },
-  { path: 'directives', component: Directive},
+  { path: 'directives', component: Directives},
   { path: 'data-binding', component: DataBinding}
 ];
