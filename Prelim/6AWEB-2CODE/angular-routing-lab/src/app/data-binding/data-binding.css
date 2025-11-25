@@ -1,7 +1,7 @@
 :host {
   display: block;
   padding: 30px;
-  font-family: "Sniglet", system-ui;
+  font-family: "Balsamiq Sans", system-ui;
   font-weight: 400;
   color: #c2185b;
 }
@@ -12,8 +12,10 @@ h1 {
   border-bottom: 3px solid #f8bbd0;
   padding-bottom: 15px;
   margin-bottom: 25px;
-  font-size: 2em;
-  font-weight: 700;
+  font-size: 2.5em;
+  font-family: "Concert One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 img {
@@ -34,7 +36,7 @@ input {
   outline: none;
   font-size: 1.1em;
   color: #c2185b;
-  font-family: "Sniglet", system-ui;
+  font-family: "Balsamiq Sans", system-ui;
   font-weight: 400;
   transition: border-color 0.3s, background-color 0.3s;
 }
@@ -53,7 +55,7 @@ button {
   border-radius: 30px;
   cursor: pointer;
   font-weight: 700;
-  font-family: "Sniglet", system-ui;
+  font-family: "Balsamiq Sans", system-ui;
   transition: background-color 0.2s, transform 0.1s;
   box-shadow: 0 3px #e64a19;
 }
