@@ -1,0 +1,212 @@
+:host {
+  display: block;
+  padding: 20px 30px;
+}
+
+/* --- Typography --- */
+h1 {
+  text-align: center;
+  color: #ff4081;
+  border-bottom: 3px solid #f8bbd0;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  font-size: 2.5em;
+  font-family: "Concert One", sans-serif;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-family: "Concert One", sans-serif;
+  color: #ff4081;
+  margin: 0;
+  font-weight: 400;
+}
+
+h3 {
+  color: #c2185b;
+  font-family: "Concert One", sans-serif;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+p {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
+/* --- Layout Containers --- */
+.section-container {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 2px dashed #f8bbd0;
+}
+
+.section-container:last-child {
+  border-bottom: none;
+}
+
+/* NEW: 2-Column Grid System */
+.two-column-row {
+  display: flex;
+  gap: 20px;
+  align-items: stretch; /* Makes both columns equal height */
+}
+
+/* Inner card for columns to give them background/border */
+.column-card {
+  flex: 1; /* Takes equal width */
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 2px solid #f8bbd0;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.center-content {
+  text-align: center;
+}
+
+/* --- Note Boxes --- */
+.note-box {
+  background-color: #ffebee;
+  border: 2px dashed #ff4081;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+}
+
+.note-display-area {
+  min-height: 60px; /* Keeps layout stable even when note is hidden */
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #fce4ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paragraph-area {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Inputs & Buttons --- */
+input {
+  width: calc(100% - 24px);
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 2px solid #f8bbd0;
+  border-radius: 12px;
+  outline: none;
+  font-size: 1.1em;
+  color: #c2185b;
+  font-family: "Balsamiq Sans", system-ui;
+  background-color: #fff;
+}
+
+input:focus {
+  border-color: #ff4081;
+  background-color: #fff9f9;
+}
+
+button {
+  background-color: #ff8a65;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 700;
+  font-family: "Balsamiq Sans", system-ui;
+  box-shadow: 0 4px #e64a19;
+  transition: all 0.1s;
+}
+
+button:hover {
+  background-color: #ff7043;
+}
+
+button:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px #e64a19;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+/* --- Month Results --- */
+.result-text p, .result-box p {
+    color: #c2185b;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin: 5px 0 0 0;
+}
+
+/* --- City List --- */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: #fffde7;
+  border: 2px solid #ffcc80;
+  margin: 5px 0;
+  padding: 8px 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #ef6c00;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* --- Student Table --- */
+.student-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 5px 10px;
+  margin-top: 10px;
+}
+
+.student-table th {
+  text-align: left;
+  color: #ff4081;
+  font-family: "Concert One", sans-serif;
+  font-size: 1.2em;
+  padding: 0 10px 10px 10px;
+  border-bottom: 2px dashed #f48fb1;
+  font-weight: 400;
+
+}
+
+.student-table td {
+  background-color: #fff0f6;
+  border: 2px solid #f8bbd0;
+  border-radius: 15px;
+  padding: 15px;
+  vertical-align: middle;
+  font-weight: 500;
+}
+
+/* Status Text Styling */
+.status-active {
+  color: #d81b60;
+  font-weight: 900;
+}
+
+.status-inactive {
+  color: #ad1457;
+  font-weight: 900;
+  opacity: 0.7;
+}

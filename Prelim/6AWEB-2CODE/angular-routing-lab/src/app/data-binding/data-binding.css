@@ -1,51 +1,107 @@
 :host {
   display: block;
-  padding: 30px;
+  padding: 20px 30px;
   font-family: "Balsamiq Sans", system-ui;
-  font-weight: 400;
   color: #c2185b;
 }
 
+/* --- Typography --- */
 h1 {
   text-align: center;
   color: #ff4081;
   border-bottom: 3px solid #f8bbd0;
   padding-bottom: 15px;
-  margin-bottom: 25px;
+  margin: 25px 0;
   font-size: 2.5em;
   font-family: "Concert One", sans-serif;
   font-weight: 400;
-  font-style: normal;
 }
 
 h2 {
   font-size: 1.5em;
   font-family: "Concert One", sans-serif;
+  color: #c2185b;
+  margin-top: 0;
+  margin-bottom: 15px;
   font-weight: 400;
-  font-style: normal;
 }
 
+p {
+  margin: 10px 0;
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+/* --- Layout Grid System --- */
+.two-column-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 25px;
+  align-items: stretch;
+}
+
+.column-card {
+  flex: 1; /* Default equal width */
+  background-color: rgba(255, 255, 255, 0.4); /* Transparent card look */
+  border: 2px solid #f8bbd0;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Custom Widths for Section 1 */
+.col-small {
+  flex: 1;
+}
+
+.col-wide {
+  flex: 2; /* Makes this column twice as wide */
+}
+
+/* Alignment Helpers */
+.center-content {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.vertical-center {
+  justify-content: center;
+}
+
+/* --- Images --- */
 img {
   display: block;
-  margin: 0 auto 25px auto;
   border-radius: 50%;
   border: 5px solid #ffcc80;
   object-fit: cover;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.profile-img {
+  width: 100px;
+  height: 100px;
+}
+
+.feature-img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* --- Inputs & Buttons --- */
 input {
-  width: calc(100% - 20px);
+  width: calc(100% - 40px);
   padding: 12px;
-  margin-bottom: 18px;
   border: 2px solid #f8bbd0;
   border-radius: 12px;
   outline: none;
   font-size: 1.1em;
   color: #c2185b;
   font-family: "Balsamiq Sans", system-ui;
-  font-weight: 400;
-  transition: border-color 0.3s, background-color 0.3s;
+  background-color: #fff;
+  text-align: center;
 }
 
 input:focus {
@@ -57,14 +113,14 @@ button {
   background-color: #ff8a65;
   color: white;
   border: none;
-  padding: 12px 20px;
-  margin-right: 15px;
+  padding: 10px 20px;
+  margin: 5px;
   border-radius: 30px;
   cursor: pointer;
   font-weight: 700;
   font-family: "Balsamiq Sans", system-ui;
-  transition: background-color 0.2s, transform 0.1s;
-  box-shadow: 0 3px #e64a19;
+  box-shadow: 0 4px #e64a19;
+  transition: transform 0.1s;
 }
 
 button:hover {
@@ -76,41 +132,61 @@ button:active {
   box-shadow: 0 1px #e64a19;
 }
 
-p {
-  margin: 12px 0;
-  line-height: 1.6;
-  font-size: 1.2em;
-  font-weight: 400;
+button[disabled] {
+    background-color: #ffccbc;
+    box-shadow: none;
+    cursor: not-allowed;
 }
 
+/* --- Specific Text Styling --- */
 .highlighted {
   background-color: #fffde7;
-  padding: 5px;
+  padding: 8px 15px;
   border-radius: 10px;
   font-weight: 700;
-  border: 1px solid #ffcc80;
+  border: 2px dashed #ffcc80;
+  display: inline-block;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
+.greeting-text {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #d81b60;
 }
 
-section {
-  margin-bottom: 20px;
+.count-display {
+  font-size: 1.8em;
+  font-weight: bold;
+  font-family: "Concert One", sans-serif;
+  margin-bottom: 15px;
 }
 
 .passing {
-  color: green;
-  font-weight: bold;
+  color: #2e7d32;
+  font-weight: 900;
+  font-size: 1.3em;
 }
 
 .failing {
-  color: red;
-  font-weight: bold;
+  color: #c62828;
+  font-weight: 900;
+  font-size: 1.3em;
+}
+
+/* --- Box Styling --- */
+.sub-section {
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.box-wrapper {
+    display: flex;
+    justify-content: center;
 }
 
 .box {
-  border: 2px solid black;
-  margin-top: 10px;
+  border: 3px solid #000;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }

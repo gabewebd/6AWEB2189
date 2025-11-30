@@ -1,14 +1,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=Concert+One&display=swap" rel="stylesheet">
-<div class="main-card-wrapper">
 
-  <nav>
-    <a routerLink="/">Home</a>
-    <a routerLink="/data-binding">Data Binding</a>
-    <a routerLink="/directives">Directives</a>
-  </nav>
-
-  <router-outlet></router-outlet>
-
+<div class="app-background" [style.backgroundImage]="imageUrl1">
+  <div class="main-card-wrapper">
+  
+    <nav>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a routerLink="/data-binding" routerLinkActive="active">Data Binding</a>
+      <a routerLink="/directives" routerLinkActive="active">Directives</a>
+    </nav>
+  
+    <router-outlet></router-outlet>
+  
+  </div>
 </div>

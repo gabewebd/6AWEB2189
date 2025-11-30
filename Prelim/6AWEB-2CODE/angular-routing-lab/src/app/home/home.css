@@ -10,6 +10,7 @@
     text-align: center;
 }
 
+/* --- Typography --- */
 h1 {
     color: #ff4081;
     border-bottom: 3px solid #f8bbd0;
@@ -21,13 +22,14 @@ h1 {
     font-style: normal;
 }
 
-img {
-    display: block;
-    margin: 0 auto 25px auto;
-    border-radius: 50%;
-    border: 5px solid #ffcc80;
-    object-fit: cover;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+h2 {
+    font-family: "Concert One", sans-serif;
+    color: #ef6c00; 
+    border-bottom: 2px solid #ffcc80;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.8em;
 }
 
 p {
@@ -37,6 +39,93 @@ p {
     font-weight: 400;
 }
 
+/* --- Grid System & Cards --- */
+.two-column-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    align-items: stretch;
+}
+
+.column-card {
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 2px solid #f8bbd0;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.col-small {
+    flex: 1; 
+}
+
+.col-wide {
+    flex: 2; 
+}
+
+.center-content {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.vertical-center {
+    justify-content: center;
+}
+
+/* --- Image & Frame Styling (Improved Framing) --- */
+.image-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Create a prominent frame around the image */
+    background-color: #ffcc80; 
+    padding: 10px; 
+    border-radius: 50%; /* Circular frame */
+    box-shadow: 0 0 0 8px #fff8e1, /* Inner light border */
+                0 8px 15px rgba(255, 138, 101, 0.4); /* Outer soft shadow */
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    /* Removed the previous border/shadow from the img itself, it's now on the frame */
+    border: 4px solid white;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+}
+
+/* --- Profile Card Styling --- */
+.profile-card {
+    text-align: left;
+    padding: 25px;
+    border: 3px dashed #ff8a65; 
+    background-color: #fff8e1; 
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(255, 138, 101, 0.2);
+    margin-top: 30px;
+}
+
+.profile-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-card li {
+    padding: 5px 0;
+    font-size: 1.1em;
+    color: #c2185b;
+}
+
+/* --- Highlighted Text (Navigation Prompt) --- */
 .highlighted {
     display: inline-block;
     background-color: #fffde7;
@@ -45,4 +134,5 @@ p {
     font-weight: 700;
     border: 1px solid #ffcc80;
     margin-top: 20px;
+    margin-bottom: 30px; 
 }

@@ -1,32 +1,60 @@
-
 <h1> {{ message }} </h1>
 
-<img [src]="imageUrl" [width]=50 [height]=50 [alt]="altText">
+<div class="two-column-row">
+  
+  <div class="column-card col-small center-content">
+    <img [src]="imageUrl" alt="altText" class="profile-img">
+  </div>
 
-<p [style.color]="textColor">This is Blue</p>
-<p [class.highlighted]="isHighlighted">This text is highlighted</p>
+  <div class="column-card col-wide vertical-center">
+    <p [style.color]="textColor">This is Blue</p>
+    <p [class.highlighted]="isHighlighted">This text is highlighted</p>
+  </div>
 
-<input [(ngModel)]="yourName" placeholder="Enter your name">
-<p>Hello, {{ yourName }}!</p>
+</div>
 
-<button (click)="increment()">Increment</button>
-<button (click)="decrement()">Decrement</button>
-<p>Count: {{ count }}</p>
+<div class="two-column-row">
+
+  <div class="column-card center-content">
+    <p class="greeting-text">Hello, {{ yourName }}!</p>
+    <input [(ngModel)]="yourName" placeholder="Enter your name">
+  </div>
+
+  <div class="column-card center-content">
+    <p class="count-display">Count: {{ count }}</p>
+    <div class="button-group">
+      <button (click)="increment()">Increment</button>
+      <button (click)="decrement()">Decrement</button>
+    </div>
+  </div>
+
+</div>
 
 <h1> {{ studentName }} </h1>
 
-<section>
-  <h2>Property Binding</h2>
-  <img [src]="imageUrl1" width="200">
-  <br /><br />
-  <button [disabled]="isDisabled">Submit</button>
+<div class="two-column-row">
 
-  <h2>Class Binding</h2>
-  <p [class.passing]="isPassing" [class.failing]="!isPassing">
-    Student Result: {{ isPassing ? 'Passed' : 'Failed'}}
-  </p>
+  <div class="column-card center-content">
+    <h2>Property Binding</h2>
+    <img [src]="imageUrl1" width="200" class="feature-img">
+    <br />
+    <button [disabled]="isDisabled">Submit</button>
+  </div>
 
-  <h2>Style Binding</h2>
-  <div  [style.background]="boxColor" [style.width]="boxSize" [style.height]="boxSize" class="box"> </div>
-</section>
+  <div class="column-card">
+    <div class="sub-section">
+      <h2>Class Binding</h2>
+      <p [class.passing]="isPassing" [class.failing]="!isPassing">
+        Student Result: {{ isPassing ? 'Passed' : 'Failed'}}
+      </p>
+    </div>
 
+    <div class="sub-section">
+      <h2>Style Binding</h2>
+      <div class="box-wrapper">
+        <div [style.background]="boxColor" [style.width]="boxSize" [style.height]="boxSize" class="box"></div>
+      </div>
+    </div>
+  </div>
+
+</div>

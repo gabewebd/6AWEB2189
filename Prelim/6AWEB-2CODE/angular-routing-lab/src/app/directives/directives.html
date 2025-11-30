@@ -1,1 +1,107 @@
-<p>directives works!</p>
+<h1>Directives</h1>
+
+<div class="section-container">
+  @if(isStaticNoteVisible===true) {
+  <div class="note-box">
+    <h2>This is a static note with true value!</h2>
+  </div>
+  } @else {
+  <div class="note-box">
+    <h2>This static note has false value.</h2>
+  </div>
+  }
+</div>
+
+<div class="section-container two-column-row">
+  
+  <div class="column-card center-content">
+    <h3>Note Logic</h3>
+    
+    <div class="note-display-area">
+      @if(isNoteVisible===true) {
+        <p>This is a note!</p>
+      }
+      </div>
+    
+    <div class="button-group">
+      <button (click)="showNote()">Show Note</button>
+      <button (click)="hideNote()">Hide Note</button>
+    </div>
+  </div>
+
+  <div class="column-card center-content" style="display: flex; flex-direction: column; justify-content: space-between;">
+    <h3>Paragraph Logic</h3>
+
+    <div class="paragraph-area">
+      @if (isParagraphVisible) {
+      <p>This is the paragraph content.</p>
+      }
+    </div>
+
+    <button (click)="toggleNote()">
+      {{ isParagraphVisible ? 'Hide Paragraph' : 'Show Paragraph' }}
+    </button>
+  </div>
+
+</div>
+
+<div class="section-container two-column-row">
+  
+  <div class="column-card">
+    <p><strong>Static Month Check:</strong></p>
+    <div class="result-text">
+      @if(monthNameStatic == 'Jan') { <p>January</p> } 
+      @else if(monthNameStatic == 'Feb') { <p>February</p> } 
+      @else if(monthNameStatic == 'Mar') { <p>March</p> }
+    </div>
+  </div>
+
+  <div class="column-card">
+    <label>Type Jan, Feb, or Mar:</label>
+    <input type="text" [(ngModel)]="monthNameDynamic" placeholder="Enter month...">
+    
+    <div class="result-box">
+      @if(monthNameDynamic == 'Jan'){ <p>January</p> }
+      @else if(monthNameDynamic == 'Feb'){ <p>February</p> }
+      @else if(monthNameDynamic == 'Mar'){ <p>March</p> }
+      @else { <p style="color: #aaa;">...</p> }
+    </div>
+  </div>
+
+</div>
+
+<div class="section-container">
+  <h3>City List</h3>
+  <ul>
+    @for (item of citylist; track $index) {
+    <li>{{item}}</li>
+    }
+  </ul>
+</div>
+
+<table class="student-table">
+  <thead>
+    <tr>
+      <th>Student No</th>
+      <th>Name</th>
+      <th>Course</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of studentList; track $index) {
+    <tr>
+      <td>{{$index+1}}</td>
+      <td>{{item.stud_name}}</td>
+      <td>{{item.course}}</td>
+      <td>
+        @if (item.isActive == true ) {
+        <span class="status-active">Active</span>
+        } @else {
+        <span class="status-inactive">Inactive</span>
+        }
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>

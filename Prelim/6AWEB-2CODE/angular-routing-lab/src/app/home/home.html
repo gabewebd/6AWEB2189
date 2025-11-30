@@ -1,8 +1,34 @@
-
-
 <div class="home-content">
+  
     <h1>Prelim Lab Activity ft. Cute Cat</h1>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2EFZwo7jYt7mHhHtHiNaVWjl9RddpSvfjAA&s" alt="A very cute cat image" width="100" height="100">
-    <p>Welcome to Gabrielle Ainshley Velasquez's page for Angular data binding and directives.</p>
+
+    <!-- Section 1: Cat (Left, Smaller) & Welcome Message (Right, Wider) -->
+    <div class="two-column-row main-message-row">
+        
+        <div class="column-card col-small center-content">
+            <!-- New wrapper for better framing -->
+            <div class="image-frame">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2EFZwo7jYt7mHhHtHiNaVWjl9RddpSvfjAA&s" alt="A very cute cat image" class="profile-img">
+            </div>
+        </div>
+        
+        <div class="column-card col-wide vertical-center">
+            <p>Welcome to Gabrielle Ainshley Velasquez's page for Angular data binding and directives.</p>
+        </div>
+    </div>
+    
+    <!-- Navigation Prompt (Full Width) -->
     <p class="highlighted">Click the navigation links above to explore the different pages.</p>
+
+    <!-- Section 2: Brief Profile -->
+    <div class="profile-card">
+        <h2>About Ainsh</h2>
+        <ul>
+            <li><strong>Nickname:</strong> Ainsh</li>
+            <li><strong>Age:</strong> 20 years old</li>
+            <li><strong>Major:</strong> Web Development</li>
+            <li><strong>University:</strong> Holy Angel University</li>
+            <li><strong>Favorite Food:</strong> Donut 🍩</li>
+        </ul>
+    </div>
 </div>
