@@ -24,7 +24,7 @@ h1 {
 
 h2 {
     font-family: "Concert One", sans-serif;
-    color: #ef6c00; 
+    color: #ef6c00;
     border-bottom: 2px solid #ffcc80;
     padding-bottom: 10px;
     margin-top: 0;
@@ -57,11 +57,11 @@ p {
 }
 
 .col-small {
-    flex: 1; 
+    flex: 1;
 }
 
 .col-wide {
-    flex: 2; 
+    flex: 2;
 }
 
 .center-content {
@@ -80,8 +80,8 @@ p {
     justify-content: center;
     align-items: center;
     /* Create a prominent frame around the image */
-    background-color: #ffcc80; 
-    padding: 10px; 
+    background-color: #ffcc80;
+    padding: 10px;
     border-radius: 50%; /* Circular frame */
     box-shadow: 0 0 0 8px #fff8e1, /* Inner light border */
                 0 8px 15px rgba(255, 138, 101, 0.4); /* Outer soft shadow */
@@ -106,8 +106,8 @@ img {
 .profile-card {
     text-align: left;
     padding: 25px;
-    border: 3px dashed #ff8a65; 
-    background-color: #fff8e1; 
+    border: 3px dashed #ff8a65;
+    background-color: #fff8e1;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(255, 138, 101, 0.2);
     margin-top: 30px;
@@ -134,5 +134,5 @@ img {
     font-weight: 700;
     border: 1px solid #ffcc80;
     margin-top: 20px;
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
 }

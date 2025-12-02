@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+/* --- Global Styles for Background --- */
+.app-background {
+  min-height: 100vh;
+  padding: 10px; /* Small padding around the whole page */
+  background-size: cover;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+.main-card-wrapper {
+  display: block;
+  max-width: 700px; /* Widened from 450px */
+  margin: 30px auto;
+  padding: 0;
+  background-color: #ffe0f6;
+  box-shadow: 0 6px 12px rgba(255, 105, 180, 0.3);
+  border-radius: 25px;
+  font-family: "Balsamiq Sans", system-ui;
+  font-weight: 400;
+  color: #c2185b;
+  border: 4px dashed #f48fb1;
+  overflow: hidden; /* Ensures content doesn't spill out */
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  padding: 15px 30px;
+  margin: 0;
+  background-color: #fce4ec;
+  box-shadow: none;
+  border: none;
+  border-bottom: 2px solid #f8bbd0;
+}
+
+nav a {
+  color: #ff4081;
+  text-decoration: none;
+  padding: 5px 10px;
+  margin: 0 8px;
+  transition: color 0.3s, background-color 0.3s, border-radius 0.3s;
+  font-weight: 700;
+}
+
+nav a:hover,
+nav a.active {
+  color: white;
+  background-color: #ff8a65;
+  border-radius: 20px;
+  text-shadow: 1px 1px 2px #e64a19;
+}

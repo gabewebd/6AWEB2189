@@ -1,6 +1,8 @@
 :host {
   display: block;
   padding: 20px 30px;
+  font-family: "Balsamiq Sans", system-ui;
+  color: #c2185b;
 }
 
 /* --- Typography --- */
