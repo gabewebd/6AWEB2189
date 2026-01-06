@@ -12,10 +12,10 @@ body {
   overflow-x: hidden;
 }
 
-/* Updated Heading Styles: Source Serif 4 with a weight of 600 */
+/* Updated Heading Styles: Source Serif 4 with a weight of 800 */
 h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
   font-family: "Source Serif 4", serif;
-  font-weight: 600;
+  font-weight: 600 !important;
   text-transform: none; /* Maintains natural casing for better readability */
   font-variation-settings: "opsz" 32; /* Optimized for medium-sized headings */
 }

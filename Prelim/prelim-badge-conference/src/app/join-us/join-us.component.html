@@ -18,17 +18,17 @@
 
   <section class="container py-5">
     <div class="row g-5">
-      <div class="col-lg-7">
+      <div class="col-lg-7 animate-fade-up">
         <h2 class="display-5 text-dark tracking-tight mb-4">Fill the form below:</h2>
         <div class="card border-0 shadow-sm rounded-0 p-4 p-md-5 bg-white">
           <form class="row g-4">
             <div class="col-md-6">
               <label class="form-label text-muted small fw-bold text-uppercase">Firstname:</label>
-              <input type="text" [(ngModel)]="registrationData.firstname" name="fname" class="form-control rounded-0 border-dark border-opacity-25 py-2">
+              <input type="text" [(ngModel)]="registrationData.firstname" name="fname" class="form-control rounded-0 border-dark border-opacity-25 py-2" placeholder="e.g. John">
             </div>
             <div class="col-md-6">
               <label class="form-label text-muted small fw-bold text-uppercase">Lastname:</label>
-              <input type="text" [(ngModel)]="registrationData.lastname" name="lname" class="form-control rounded-0 border-dark border-opacity-25 py-2">
+              <input type="text" [(ngModel)]="registrationData.lastname" name="lname" class="form-control rounded-0 border-dark border-opacity-25 py-2" placeholder="e.g. Doe">
             </div>
             <div class="col-12">
               <label class="form-label text-muted small fw-bold text-uppercase">Enter Email Address:</label>
