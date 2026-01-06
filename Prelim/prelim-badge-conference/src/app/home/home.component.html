@@ -1,0 +1,73 @@
+<header class="position-relative bg-black text-white d-flex align-items-center justify-content-center text-center overflow-hidden" style="min-height: 85vh;">
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="z-index: 0;">
+    <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2000"
+         class="w-100 h-100 object-fit-cover opacity-25 grayscale">
+
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-to-b from-transparent to-black opacity-100"></div>
+  </div>
+
+  <div class="container position-relative animate-fade-up" style="z-index: 1;">
+    <h1 class="display-1 tracking-tight mb-3">{{ confData().title }}</h1>
+    <p class="display-6 fw-light mb-5 opacity-75">{{ confData().subtitle }}</p>
+    <button class="btn btn-primary btn-lg px-5 py-3 fw-bold text-uppercase tracking-widest rounded-0 shadow-lg border-0">
+      {{ confData().ctaText }}
+    </button>
+  </div>
+</header>
+
+<section class="py-5 bg-white">
+  <div class="container py-5">
+    <div class="text-center mb-5 animate-fade-up">
+      <h2 class="display-4 text-dark tracking-tight">Join our Conferences around the Globe</h2>
+      <div class="mx-auto bg-primary mt-3" style="width: 80px; height: 5px;"></div>
+    </div>
+
+    <div class="row g-4">
+      @for (loc of locations(); track loc.name) {
+        <div class="col-12 col-sm-6 col-lg-3 animate-fade-up">
+          <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-lift">
+            <img [src]="loc.img" class="card-img-top object-fit-cover" style="height: 220px;" [alt]="loc.name">
+            <div class="card-body p-4">
+              <h4 class="fw-bold text-dark mb-2">{{ loc.name }}</h4>
+              <p class="text-muted small mb-4 lh-relaxed">{{ loc.desc }}</p>
+              <div class="pt-3 border-top mt-auto">
+                <span class="text-primary fw-bold small text-uppercase tracking-widest">{{ loc.track }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section id="speakers" class="py-5 bg-light overflow-hidden">
+  <div class="container py-5">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 animate-slide-right">
+        <div class="position-relative">
+          <div class="bg-primary position-absolute w-100 h-100 rounded-4" style="top: 20px; left: -20px; z-index: 0;"></div>
+          <img [src]="featuredSpeaker().image"
+               class="img-fluid rounded-4 shadow-2xl position-relative z-index-1 w-100 object-fit-cover"
+               style="aspect-ratio: 1/1;" alt="Speaker">
+
+          <div class="position-absolute bottom-0 start-0 m-4 bg-white p-4 shadow-lg rounded-3 border-start border-5 border-primary z-index-2">
+            <p class="text-primary fw-black h4 mb-0">{{ featuredSpeaker().name }}</p>
+            <p class="text-secondary fw-bold text-uppercase small mb-0">{{ featuredSpeaker().role }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 animate-fade-up">
+        <span class="text-primary fw-bold text-uppercase tracking-widest small d-block mb-3">Lead Speaker</span>
+        <h3 class="display-3 text-dark mb-4 tracking-tight lh-1">
+          Innovation through <br><span class="text-primary">Transformation.</span>
+        </h3>
+        <p class="text-secondary fs-4 fst-italic lh-relaxed opacity-75">
+          "{{ featuredSpeaker().bio }}"
+        </p>
+        <button class="btn btn-dark btn-lg px-5 py-3 mt-4 rounded-0 fw-bold text-uppercase small shadow">View Schedule</button>
+      </div>
+    </div>
+  </div>
+</section>

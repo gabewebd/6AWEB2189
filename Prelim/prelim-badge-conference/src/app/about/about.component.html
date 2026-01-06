@@ -1,0 +1,128 @@
+<div class="bg-white min-vh-100 animate-fade-up">
+  <section class="position-relative overflow-hidden shadow-lg mb-5" style="min-height: 550px;">
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="z-index: 0;">
+      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000" class="w-100 h-100 object-fit-cover">
+      <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6));"></div>
+    </div>
+
+    <div class="container position-relative py-5 d-flex align-items-center justify-content-center text-center text-white h-100" style="z-index: 1; min-height: 550px;">
+      <div class="max-w-4xl">
+        <h1 class="display-2 tracking-tight mb-4">About the Organization</h1>
+        <p class="fs-4 fw-light lh-base mb-5 opacity-90">
+          Learn how the team and committee leadership are shaping the world of conferences, get the latest conference news and updates on our blog, and contact us for guidance.
+        </p>
+        <button class="btn btn-outline-light px-5 py-3 rounded-0 text-uppercase fw-bold small tracking-widest">Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <h2 class="display-4 text-dark tracking-tight mb-4">About</h2>
+        <p class="text-secondary fs-5 lh-lg mb-4">
+          We believe in transparency, cooperation globally, and the free exchange of talent and ideas. A forum for the sharing of these technical and humanitarian discussions is given for meetings, conferences and other events.
+        </p>
+
+        <button (click)="onGiftClick()" class="btn btn-light border mb-4 shadow-sm px-4 py-2 small fw-bold">
+          Click here to get a FREE Gift!
+        </button>
+
+        <p class="text-secondary fs-5 lh-lg mb-5">
+          Conferences are a part of the legacy of this organization and continue today to be a catalyst for creativity. We are committed to developing strategies that support and expand the conference activities throughout the world.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-5 border-top">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="text-primary small fw-bold text-uppercase tracking-widest mb-3 d-block">Established 2012</span>
+        <h2 class="display-5 text-dark tracking-tighter mb-4">
+          Driving <span class="text-primary">Technological</span> Advancement Globally.
+        </h2>
+        <p class="text-secondary fs-5 lh-base mb-5">
+          GlobalCon began as a small roundtable discussion in Singapore and has since evolved into the world's most influential technology conference organization.
+        </p>
+
+        <div class="bg-light p-4 rounded-4 border-start border-5 border-primary shadow-sm">
+          <p class="fs-4 fst-italic text-dark mb-0 lh-base">
+            "Our mission is to foster innovation by connecting the world's most brilliant minds."
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-6 animate-slide-right">
+        <div class="row g-0">
+          <div class="col-10 offset-2 position-relative z-1">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
+                 class="img-fluid rounded-4 shadow-lg" alt="Innovation 1">
+          </div>
+          <div class="col-10 position-relative z-2" style="margin-top: -5rem;">
+            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80&w=800"
+                 class="img-fluid rounded-4 shadow-lg border border-5 border-white" alt="Innovation 2">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-5 mt-5">
+    <div class="text-center mb-5">
+      <h2 class="text-primary small fw-bold text-uppercase tracking-widest mb-3">THE LEADERSHIP</h2>
+      <h3 class="h3 text-dark tracking-tight">Click to view profile</h3>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      @for (member of team; track member.name) {
+        <div class="col-6 col-md-4 col-lg-3">
+          <div (click)="selectedMember.set(member.name)"
+               class="position-relative overflow-hidden rounded-4 shadow-sm cursor-pointer group bg-dark ratio ratio-1x1 transition-hover">
+            <img [src]="member.img" class="position-absolute w-100 h-100 object-fit-cover transition duration-500 group-hover-opacity" [alt]="member.name">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center p-3 text-center opacity-0 group-hover-show transition">
+              <p class="text-white fw-bold-custom h5 tracking-tighter mb-1">{{ member.name }}</p>
+              <p class="text-info fw-bold text-uppercase small tracking-widest mb-0">{{ member.role }}</p>
+            </div>
+
+            @if (selectedMember() === member.name) {
+              <div class="position-absolute top-0 end-0 p-3 text-info fs-3 animate-pulse" style="z-index: 20;">
+                <i class="bi bi-person-check-fill"></i>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    @if (selectedMember()) {
+      <div class="mt-5 text-center p-5 bg-primary bg-opacity-10 border border-primary border-opacity-25 rounded-4 mx-auto animate-fade-up shadow-sm" style="max-width: 600px;">
+        <p class="text-primary fw-bold text-uppercase small mb-2 tracking-widest">Selected Lead</p>
+        <h4 class="h3 text-dark tracking-tighter mb-4">{{ selectedMember() }}</h4>
+        <button (click)="selectedMember.set('')" class="btn btn-primary px-4 py-2 text-uppercase small fw-bold tracking-widest">Close Details</button>
+      </div>
+    }
+  </section>
+
+  <section class="bg-light py-5 mt-5 border-top">
+    <div class="container py-5 text-center">
+      <h3 class="h2 text-dark mb-5 tracking-tight">Get in Touch</h3>
+      <div class="card border-0 shadow-lg rounded-4 p-5 mx-auto animate-fade-up" style="max-width: 700px;">
+        <div class="d-grid gap-4">
+          <div class="text-start">
+            <label class="form-label text-muted small fw-bold text-uppercase tracking-widest mb-2">Your Inquiry</label>
+            <textarea #inquiryInput class="form-control form-control-lg bg-light border-0" rows="4" placeholder="How can we help?"></textarea>
+          </div>
+          <button (click)="handleInquiry(inquiryInput.value)" class="btn btn-primary btn-lg py-3 fw-bold text-uppercase tracking-widest shadow">
+            Submit Inquiry
+          </button>
+          @if (submissionStatus()) {
+            <div class="alert alert-primary border-0 rounded-3 py-3 mt-3 animate-bounce">
+              <p class="mb-0 fw-bold text-uppercase small tracking-widest">{{ submissionStatus() }}</p>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

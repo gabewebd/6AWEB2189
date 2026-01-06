@@ -1,0 +1,73 @@
+<div class="bg-light min-vh-100 animate-fade-up">
+  <section class="position-relative overflow-hidden shadow-lg mb-5" style="min-height: 400px;">
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="z-index: 0;">
+      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000" class="w-100 h-100 object-fit-cover">
+      <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.5);"></div>
+    </div>
+
+    <div class="container position-relative py-5 d-flex align-items-center justify-content-center text-center text-white h-100" style="z-index: 1; min-height: 400px;">
+      <div class="max-w-4xl p-4">
+        <h1 class="display-3 tracking-tight mb-3">Join Our Mailing List!</h1>
+        <p class="fs-4 fw-light mb-4 opacity-90">
+          Join and meet thousands academicians around the globe and stay updated!
+        </p>
+        <button class="btn btn-outline-light px-5 py-2 rounded-0 text-uppercase fw-bold small">Click here to JOIN!</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-5">
+    <div class="row g-5">
+      <div class="col-lg-7">
+        <h2 class="display-5 text-dark tracking-tight mb-4">Fill the form below:</h2>
+        <div class="card border-0 shadow-sm rounded-0 p-4 p-md-5 bg-white">
+          <form class="row g-4">
+            <div class="col-md-6">
+              <label class="form-label text-muted small fw-bold text-uppercase">Firstname:</label>
+              <input type="text" [(ngModel)]="registrationData.firstname" name="fname" class="form-control rounded-0 border-dark border-opacity-25 py-2">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label text-muted small fw-bold text-uppercase">Lastname:</label>
+              <input type="text" [(ngModel)]="registrationData.lastname" name="lname" class="form-control rounded-0 border-dark border-opacity-25 py-2">
+            </div>
+            <div class="col-12">
+              <label class="form-label text-muted small fw-bold text-uppercase">Enter Email Address:</label>
+              <input type="email" [(ngModel)]="registrationData.email" name="email" class="form-control rounded-0 border-dark border-opacity-25 py-2" placeholder="email@xyz.com">
+            </div>
+            <div class="col-12">
+              <label class="form-label text-muted small fw-bold text-uppercase">Enter Institution/Affiliation:</label>
+              <input type="text" [(ngModel)]="registrationData.institution" name="inst" class="form-control rounded-0 border-dark border-opacity-25 py-2" placeholder="e.g. Holy Angel University">
+            </div>
+            <div class="col-12 pt-3">
+              <button type="button" (click)="submitForm()" class="btn btn-dark w-100 py-3 rounded-0 fw-bold text-uppercase tracking-widest shadow">Confirm Registration</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <h2 class="text-primary small fw-bold text-uppercase tracking-widest mb-4">Real-time Preview</h2>
+        <div class="bg-white p-5 border shadow-sm h-100">
+          <div class="mb-4">
+            <p class="text-muted small fw-bold mb-1">Fullname:</p>
+            <p class="fs-4 text-dark">{{ fullName() || '---' }}</p>
+          </div>
+          <div class="mb-4">
+            <p class="text-muted small fw-bold mb-1">Email Address:</p>
+            <p class="fs-5 text-dark">{{ registrationData.email() || '---' }}</p>
+          </div>
+          <div class="mb-4">
+            <p class="text-muted small fw-bold mb-1">Academic Institution:</p>
+            <p class="fs-5 text-dark">{{ registrationData.institution() || '---' }}</p>
+          </div>
+
+          @if (showSuccess()) {
+            <div class="alert alert-success rounded-0 mt-5 animate-bounce border-0 py-3 shadow-sm">
+              <p class="mb-0 text-center fw-bold small text-uppercase"><i class="bi bi-check-circle-fill me-2"></i>Registration Processed!</p>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

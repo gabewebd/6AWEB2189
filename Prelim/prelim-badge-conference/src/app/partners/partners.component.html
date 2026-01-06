@@ -1,0 +1,84 @@
+<div class="bg-light min-vh-100 animate-fade-up">
+  <section class="bg-dark py-5 text-center text-white position-relative overflow-hidden shadow-lg"
+           style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000'); background-size: cover; background-position: center;">
+    <div class="container position-relative py-5" style="z-index: 1;">
+      <h1 class="display-3 tracking-tighter mb-4 animate-slide-right">Our Partners</h1>
+      <p class="mx-auto mb-4 lead opacity-75" style="max-width: 800px;">
+        Collaborating with industry leaders to drive technological advancement globally.
+      </p>
+      <button class="btn btn-outline-light btn-lg px-4 py-2 rounded-2 fw-bold text-uppercase small">Become a Sponsor</button>
+    </div>
+  </section>
+
+  <section class="container py-5">
+    <div class="text-center mb-5">
+      <span class="text-primary fw-bold text-uppercase small tracking-widest d-block mb-3">Filter by Sponsorship Tier</span>
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+        @for (cat of categories; track cat) {
+          <button (click)="selectedCategory.set(cat)"
+            [class]="selectedCategory() === cat ? 'btn btn-primary rounded-pill px-4 shadow' : 'btn btn-outline-secondary rounded-pill px-4'"
+            class="fw-bold text-uppercase small tracking-widest transition shadow-sm">
+            {{ cat }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="card border-0 shadow-lg rounded-4 overflow-hidden mb-5 animate-fade-up">
+      <div class="card-header bg-white py-4 border-0 text-center">
+        <h2 class="text-dark tracking-tighter mb-0">Corporate Partners</h2>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="bg-light">
+            <tr class="text-uppercase small fw-bold text-muted border-top border-bottom">
+              <th class="ps-5 py-3">Company</th>
+              <th class="py-3">Trademark</th>
+              <th class="py-3">Sponsorship</th>
+              <th class="pe-5 py-3 text-end">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (partner of filteredPartners(); track partner.name) {
+              <tr class="transition-hover">
+                <td class="ps-5 py-4">
+                  <span class="fw-bold-custom text-dark fs-5">{{ partner.name }}</span>
+                </td>
+
+                <td class="py-4">
+                  <img [src]="partner.logo" [alt]="partner.name" class="partner-logo">
+                </td>
+
+                <td class="py-4">
+                  <span [class]="getTierClass(partner.tier)" class="badge rounded-pill text-uppercase px-3 py-2 small tracking-widest">
+                    {{ partner.tier }}
+                  </span>
+                </td>
+
+                <td class="pe-5 py-4 text-end">
+                  <a [href]="partner.website" target="_blank" class="text-primary fw-bold text-decoration-none small hover-underline">
+                    View website <i class="bi bi-box-arrow-up-right ms-1"></i>
+                  </a>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white border-top shadow-inner">
+    <div class="container py-5 text-center animate-fade-up">
+      <h2 class="display-5 text-dark tracking-tighter mb-3">Join the Ecosystem</h2>
+      <p class="text-secondary mx-auto mb-5 lead" style="max-width: 700px;">
+        Is your organization ready to lead the conversation? Partner with GlobalCon 2025 and reach thousands of industry professionals.
+      </p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <button class="btn btn-dark px-5 py-3 fw-bold text-uppercase tracking-widest shadow hover-lift">Download Media Kit</button>
+        <button class="btn btn-outline-dark px-5 py-3 fw-bold text-uppercase tracking-widest hover-lift">Contact Sales</button>
+      </div>
+    </div>
+  </section>
+</div>
