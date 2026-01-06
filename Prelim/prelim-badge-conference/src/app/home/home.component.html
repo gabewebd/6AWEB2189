@@ -25,7 +25,7 @@
     <div class="row g-4">
       @for (loc of locations(); track loc.name) {
         <div class="col-12 col-sm-6 col-lg-3 animate-fade-up">
-          <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-lift">
+          <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden hover-lift location-card">
             <img [src]="loc.img" class="card-img-top object-fit-cover" style="height: 220px;" [alt]="loc.name">
             <div class="card-body p-4">
               <h4 class="fw-bold text-dark mb-2">{{ loc.name }}</h4>

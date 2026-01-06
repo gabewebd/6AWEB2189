@@ -62,11 +62,10 @@ h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4, .display
 }
 
 .table tbody tr.transition-hover:hover {
-  background-color: rgba(13, 110, 253, 0.05) !important;
+  background-color: rgba(13, 110, 253, 0.08) !important;
   cursor: pointer;
-  transform: scale(1.005);
-  box-shadow: inset 4px 0 0 0 #0d6efd; /* Blue accent line on the left */
-  transition: all 0.2s ease-in-out;
+  border-left: 4px solid #0d6efd;
+  transition: all 0.3s ease-in-out;
 }
 
 .table tbody tr.transition-hover:hover .partner-logo {
@@ -119,6 +118,21 @@ h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4, .display
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
   border-bottom: 4px solid #0d6efd !important;
   transform: translateY(-2px);
+}
+
+/* Location Cards Micro Hover Effect */
+.location-card {
+  transition: all 0.3s ease;
+}
+
+.location-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.location-card:hover .card-img-top {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
 }
 
 /* Icon scale-up on hover */
