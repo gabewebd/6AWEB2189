@@ -1,0 +1,45 @@
+/* Container for the lines */
+.hamburger-icon {
+  width: 24px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  display: block;
+}
+
+.hamburger-icon span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #0f172a; /* Dark theme color */
+  border-radius: 2px;
+  transition: .25s ease-in-out;
+}
+
+/* Default positions */
+.hamburger-icon span:nth-child(1) { top: 0; }
+.hamburger-icon span:nth-child(2) { top: 9px; }
+.hamburger-icon span:nth-child(3) { top: 18px; }
+
+/* "X" State Transformations */
+.hamburger-icon.open span:nth-child(1) {
+  top: 9px;
+  transform: rotate(45deg); /* Forms first half of X */
+}
+
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0; /* Middle line vanishes */
+  left: -20px;
+}
+
+.hamburger-icon.open span:nth-child(3) {
+  top: 9px;
+  transform: rotate(-45deg); /* Forms second half of X */
+}
+
+@media (max-width: 991.98px) {
+  .navbar-toggler {
+    z-index: 1100; /* Stays above the collapsible content */
+  }
+}

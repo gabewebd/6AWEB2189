@@ -1,22 +1,33 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top py-3">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center gap-2 cursor-pointer" routerLink="/">
+  <div class="container d-flex justify-content-between align-items-center position-relative">
+    <a class="navbar-brand d-flex align-items-center gap-2 cursor-pointer" routerLink="/" (click)="closeMenu()">
       <div class="bg-primary text-white p-2 rounded d-flex align-items-center justify-content-center">
         <i class="bi bi-globe2 fs-5"></i>
       </div>
       <span class="fw-bolder text-uppercase tracking-tighter text-dark h4 mb-0">GlobalCon</span>
     </a>
 
-    <div class="collapse navbar-collapse justify-content-center">
-      <div class="navbar-nav gap-3">
-        <a class="nav-link fw-bold text-uppercase small" routerLink="/" routerLinkActive="text-primary" [routerLinkActiveOptions]="{exact: true}">Home</a>
-        <a class="nav-link fw-bold text-uppercase small" routerLink="/partners" routerLinkActive="text-primary">Partners</a>
-        <a class="nav-link fw-bold text-uppercase small" routerLink="/about" routerLinkActive="text-primary">About Us</a>
-        <a class="nav-link fw-bold text-uppercase small" routerLink="/join-us" routerLinkActive="text-primary">Join Us</a>
+    <button class="navbar-toggler border-0 shadow-none p-2" 
+            type="button" 
+            (click)="toggleMenu($event)"
+            aria-label="Toggle navigation">
+      <div class="hamburger-icon" [class.open]="isMenuOpen()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav" #navbarNav>
+      <div class="navbar-nav gap-3 text-center py-4 py-lg-0">
+        <a class="nav-link fw-bold text-uppercase small" routerLink="/" routerLinkActive="text-primary" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Home</a>
+        <a class="nav-link fw-bold text-uppercase small" routerLink="/partners" routerLinkActive="text-primary" (click)="closeMenu()">Partners</a>
+        <a class="nav-link fw-bold text-uppercase small" routerLink="/about" routerLinkActive="text-primary" (click)="closeMenu()">About Us</a>
+        <a class="nav-link fw-bold text-uppercase small" routerLink="/join-us" routerLinkActive="text-primary" (click)="closeMenu()">Join Us</a>
       </div>
     </div>
 
-    <button routerLink="/join-us" class="btn btn-primary px-4 py-2 fw-bold text-uppercase small tracking-widest shadow-sm">
+    <button routerLink="/join-us" class="btn btn-primary px-4 py-2 fw-bold text-uppercase small tracking-widest shadow-sm ms-2 d-none d-lg-inline">
       Register Now
     </button>
   </div>
