@@ -1,0 +1,101 @@
+<div class="page-wrapper">
+  
+  <div class="dashboard-container">
+    
+    <header class="main-header">
+      <h1>Angular Pipes Showcase</h1>
+      <p class="subtitle">Midterm Laboratory Activity 2</p>
+    </header>
+
+    <div class="grid-layout">
+      <div class="data-card">
+        <div class="card-header">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span>Date Pipe</span>
+        </div>
+        <div class="card-body">
+          <div class="data-row"><span class="label">Original:</span><span class="value">{{ presentDate }}</span></div>
+          <div class="data-row"><span class="label">Short:</span><span class="value highlight">{{ presentDate | date:'shortDate' }}</span></div>
+          <div class="data-row"><span class="label">Full:</span><span class="value">{{ presentDate | date:'fullDate' }}</span></div>
+        </div>
+      </div>
+
+      <div class="data-card">
+        <div class="card-header">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          <span>Currency Pipe</span>
+        </div>
+        <div class="card-body">
+          <div class="data-row"><span class="label">Raw:</span><span class="value">{{ price }}</span></div>
+          <div class="data-row"><span class="label">USD:</span><span class="value highlight">{{ price | currency:'USD' }}</span></div>
+          <div class="data-row"><span class="label">PHP:</span><span class="value highlight">{{ price | currency:'PHP':'symbol' }}</span></div>
+        </div>
+      </div>
+
+      <div class="data-card">
+        <div class="card-header">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line></svg>
+          <span>Decimal Pipe</span>
+        </div>
+        <div class="card-body">
+          <div class="data-row"><span class="label">Raw:</span><span class="value">{{ decimalNum1 }}</span></div>
+          <div class="data-row"><span class="label">3.1 Format:</span><span class="value highlight">{{ decimalNum1 | number:'3.1' }}</span></div>
+        </div>
+      </div>
+
+      <div class="data-card">
+        <div class="card-header">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+          <span>Percent Pipe</span>
+        </div>
+        <div class="card-body">
+          <div class="data-row"><span class="label">Decimal:</span><span class="value">{{ testPercent }}</span></div>
+          <div class="data-row"><span class="label">Percent:</span><span class="value highlight">{{ testPercent | percent }}</span></div>
+        </div>
+      </div>
+
+      <div class="data-card">
+        <div class="card-header">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+          <span>UpperCase Pipe</span>
+        </div>
+        <div class="card-body">
+          <div class="data-row"><span class="label">Original:</span><span class="value">{{ testText }}</span></div>
+          <div class="data-row"><span class="label">Result:</span><span class="value highlight">{{ testText | uppercase }}</span></div>
+        </div>
+      </div>
+
+      <div class="data-card async-card">
+        <div class="card-header">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Async Pipe</span>
+        </div>
+        <div class="card-body centered">
+          <p class="async-label">Live Signal</p>
+          <div class="async-value">{{ time$ | async | date:'mediumTime' }}</div>
+        </div>
+      </div>
+
+      <div class="data-card full-width">
+        <div class="card-header">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
+          <span>Slice Pipe</span>
+        </div>
+        <div class="card-body">
+          <div class="data-row"><span class="label">Full Array:</span><span class="value code-font">{{ Fruits }}</span></div>
+          <div class="data-row"><span class="label">First 3:</span><span class="value code-font highlight">{{ Fruits | slice:0:3 }}</span></div>
+          <div class="data-row"><span class="label">Last 2:</span><span class="value code-font highlight">{{ Fruits | slice:-2 }}</span></div>
+        </div>
+      </div>
+
+      <div class="data-card full-width">
+        <div class="card-header">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          <span>JSON Pipe</span>
+        </div>
+        <div class="card-body">
+          <pre class="json-block">{{ testObject | json }}</pre>
+        </div>
+      </div>
+
+    </div> </div> </div> ```
