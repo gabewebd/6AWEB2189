@@ -4,11 +4,18 @@
 :host {
   display: block;
   font-family: 'Inter', sans-serif;
-  /* 1. Global Background: PURE BLACK */
-  background-color: #000000;
+  
+  /* --- WHITE GRID BACKGROUND SETUP --- */
+  background-color: #FFFFFF;
+  /* Black grid lines (5% opacity) */
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px; /* Grid square size */
+  
   min-height: 100vh;
   padding: 4rem 2rem;
-  color: #333; /* Default text color inside white cards */
+  color: #111;
   box-sizing: border-box;
 }
 
@@ -18,14 +25,18 @@
   display: flex;
   flex-direction: column;
   gap: 4rem;
+  position: relative;
+  z-index: 1;
 }
 
-/* --- Panel/Card Styling (WHITE CARD on Black BG) --- */
+/* --- Panel/Card Styling --- */
 .panel {
-  background: #FFFFFF; /* White Background */
-  border-radius: 0; /* Sharp corners */
-  /* No border needed as contrast against black is enough */
-  box-shadow: 0 0 0 1px #333; /* Subtle outline effect */
+  background: #FFFFFF;
+  border-radius: 0; 
+  /* Solid Black Border to separate card from the white grid */
+  border: 1px solid #000000; 
+  /* Sharp shadow for depth */
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.1); 
 }
 
 .panel-header {
@@ -34,22 +45,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid #000000; /* Bold black divider */
+  /* Thick black divider */
+  border-bottom: 2px solid #000000; 
 }
 
 h2 {
   margin: 0;
-  font-weight: 800; /* Extra Bold */
+  font-weight: 800;
   font-size: 2rem;
   letter-spacing: -0.02em;
-  color: #000000; /* Black Text */
+  color: #000000;
   text-transform: capitalize;
 }
 
 /* --- Badges --- */
 .badge {
-  background-color: #000000; /* Black Badge */
-  color: #FFFFFF; /* White Text */
+  background-color: #000000;
+  color: #FFFFFF;
   padding: 0.5rem 1.2rem;
   border-radius: 0;
   font-size: 0.75rem;
@@ -61,7 +73,7 @@ h2 {
 .badge.api-badge {
   background-color: #FFFFFF;
   color: #000000;
-  border: 2px solid #000000; /* Black outline */
+  border: 2px solid #000000;
 }
 
 /* --- Table Styling --- */
@@ -76,8 +88,8 @@ table {
 }
 
 thead {
-  background-color: #F8F8F8; /* Very light gray header background */
-  border-bottom: 1px solid #E5E5E5;
+  background-color: #FAFAFA; /* Very light gray for header */
+  border-bottom: 1px solid #000000; /* Black line under headers */
 }
 
 th {
@@ -85,15 +97,16 @@ th {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #666666; /* Gray labels */
+  color: #555; /* Dark gray labels */
   font-weight: 700;
 }
 
 td {
   padding: 1.5rem 2.5rem;
-  border-bottom: 1px solid #F0F0F0;
+  /* Light gray divider lines */
+  border-bottom: 1px solid #E5E5E5; 
   font-size: 1.05rem;
-  color: #111111; /* Dark text for readability */
+  color: #000000;
   vertical-align: middle;
 }
 
@@ -103,12 +116,12 @@ tbody tr {
 }
 
 tbody tr:hover {
-  background-color: #F4F4F4; /* Light gray hover */
+  background-color: #F0F0F0; /* Subtle hover gray */
 }
 
 /* --- Specific Column Styling --- */
 .id-col {
-  color: #888;
+  color: #666;
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.9rem;
   font-weight: 600;
@@ -121,9 +134,9 @@ tbody tr:hover {
 }
 
 .website-link {
-  color: #000000; /* Black links */
+  color: #000000;
   text-decoration: none;
-  border-bottom: 1px solid #CCCCCC;
+  border-bottom: 1px solid #999;
   transition: all 0.2s;
   padding-bottom: 2px;
   font-weight: 600;
@@ -131,7 +144,7 @@ tbody tr:hover {
 
 .website-link:hover {
   background-color: #000000;
-  color: #FFFFFF; /* Invert on hover */
+  color: #FFFFFF;
   border-bottom-color: #000000;
 }
 
@@ -142,7 +155,7 @@ tbody tr:hover {
   border-radius: 0;
   background-color: #eee;
   overflow: hidden;
-  border: 1px solid #ddd;
+  border: 1px solid #000; /* Black border on avatars */
 }
 
 .avatar-wrapper img {
@@ -160,7 +173,7 @@ tbody tr:hover {
 .empty-state {
   text-align: center;
   padding: 5rem;
-  color: #999;
+  color: #888;
   font-family: serif;
   font-size: 1.2rem;
   font-style: italic;

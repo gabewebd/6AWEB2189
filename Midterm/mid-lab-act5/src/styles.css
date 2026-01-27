@@ -1,7 +1,8 @@
-/* In src/styles.css */
+/* src/styles.css */
 body, html {
   margin: 0;
   padding: 0;
-  background-color: #000000; /* Ensures the whole page is black */
+  background-color: #FFFFFF; /* White Global Background */
   height: 100%;
+  color: #111;
 }
