@@ -1,0 +1,26 @@
+<div class="card">
+  <h2>Contact Us</h2>
+
+  <div class="contact-grid">
+    <div>
+      <h3>Form Input</h3>
+      <label>Name *</label>
+      <input [(ngModel)]="name" placeholder="JANE DOE">
+
+      <label>Email *</label>
+      <input [(ngModel)]="email" placeholder="jane@example.com">
+
+      <label>Message</label>
+      <textarea [(ngModel)]="message" placeholder="Type here..."></textarea>
+
+      <button (click)="submit()">Submit</button>
+    </div>
+
+    <div>
+      <h3>Form Preview</h3>
+      <p><strong>Name:</strong> {{ name | uppercase }}</p>
+      <p><strong>Email:</strong> {{ email }}</p>
+      <p><strong>Message:</strong> {{ message }}</p>
+    </div>
+  </div>
+</div>
