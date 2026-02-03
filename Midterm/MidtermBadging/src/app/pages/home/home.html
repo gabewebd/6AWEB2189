@@ -1,13 +1,51 @@
-<div class="card">
-  <h2>🏠 Home</h2>
-  <h3>Welcome!</h3>
-  <p>This portal pulls remote records and shares them across pages.</p>
+<div class="container home-container">
+  <section class="hero">
+    <div class="hero-content">
+      <span class="badge">New v2.0 Live</span>
+      <h1>Welcome to<br>Community Hub.</h1>
+      <p>Seamlessly pulling remote records to keep you connected in real-time. Experience the future of data management today.</p>
 
-  <h3>Latest Updates</h3>
-  <ul *ngIf="dataService.posts$ | async as posts">
-    <li *ngFor="let post of posts | slice:0:5">
-      <strong>{{ post.title | uppercase }}</strong>
-      <p>{{ post.body }}</p>
+      <div class="hero-actions" style="display: flex; gap: 20px;">
+        <button class="btn-primary">
+          Get Started <i class="ri-arrow-right-line"></i>
+        </button>
+        <button class="btn-secondary">
+          <i class="ri-play-circle-line"></i> Watch Demo
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img src="https://picsum.photos/id/42/800/800" class="hero-img" alt="Community Hub Dashboard">
+      <div class="hero-blob"></div>
+    </div>
+  </section>
+
+  <div class="section-header">
+    <div class="icon-box">
+      <i class="ri-fire-fill"></i>
+    </div>
+    <div>
+      <h2>Latest Updates</h2>
+      <p class="subtitle">Fresh news from the team</p>
+    </div>
+  </div>
+
+  <ul class="posts-grid" *ngIf="dataService.posts$ | async as posts">
+    <li class="post-card" *ngFor="let post of posts | slice:0:5">
+      <div class="card-content">
+        <div class="card-header">
+          <span class="category-tag">NEWS</span>
+          <span class="date">Oct 24</span>
+        </div>
+        <h3 class="card-title">{{ post.title | uppercase }}</h3>
+        <p class="card-body">{{ post.body | slice:0:120 }}...</p>
+      </div>
+
+      <div class="card-footer">
+        <span class="read-more">Read Article</span>
+        <i class="ri-arrow-right-line arrow-icon"></i>
+      </div>
     </li>
   </ul>
 </div>

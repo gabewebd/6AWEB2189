@@ -1,26 +1,59 @@
-<div class="card">
-  <h2>Contact Us</h2>
+<div class="container">
+  <h2>Get In Touch</h2>
 
-  <div class="contact-grid">
-    <div>
-      <h3>Form Input</h3>
-      <label>Name *</label>
-      <input [(ngModel)]="name" placeholder="JANE DOE">
+  <div class="contact-layout">
+    <div class="form-section">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input [(ngModel)]="name" placeholder="e.g. Jane Doe">
+      </div>
 
-      <label>Email *</label>
-      <input [(ngModel)]="email" placeholder="jane@example.com">
+      <div class="form-group">
+        <label>Email Address</label>
+        <input [(ngModel)]="email" placeholder="jane@example.com">
+      </div>
 
-      <label>Message</label>
-      <textarea [(ngModel)]="message" placeholder="Type here..."></textarea>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea [(ngModel)]="message" rows="6" placeholder="Tell us how we can help..."></textarea>
+      </div>
 
-      <button (click)="submit()">Submit</button>
+      <button class="btn-primary" (click)="submit()" style="width: 100%;">
+        Send Message <i class="ri-send-plane-fill"></i>
+      </button>
     </div>
 
-    <div>
-      <h3>Form Preview</h3>
-      <p><strong>Name:</strong> {{ name | uppercase }}</p>
-      <p><strong>Email:</strong> {{ email }}</p>
-      <p><strong>Message:</strong> {{ message }}</p>
+    <div class="preview-box" style="background-color: #000; color: #fff; padding: 40px; border-radius: 12px; border: 1px solid #333;">
+      <h3 style="border-bottom: 1px solid #333; padding-bottom: 20px; margin-bottom: 40px; font-size: 1.5rem; color: #fff;">
+        <i class="ri-eye-line"></i> Live Preview
+      </h3>
+
+      <div class="preview-row" style="margin-bottom: 40px;">
+        <span class="preview-label" style="display: block; color: #777; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 10px; font-weight: bold;">
+          Name
+        </span>
+        <span class="preview-value" style="display: block; font-size: 1.4rem; font-family: 'Libre Baskerville', serif; color: #fff;">
+          {{ name ? (name | uppercase) : '...' }}
+        </span>
+      </div>
+
+      <div class="preview-row" style="margin-bottom: 40px;">
+        <span class="preview-label" style="display: block; color: #777; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 10px; font-weight: bold;">
+          Email
+        </span>
+        <span class="preview-value" style="display: block; font-size: 1.4rem; font-family: 'Libre Baskerville', serif; color: #fff; word-break: break-all;">
+          {{ email || '...' }}
+        </span>
+      </div>
+
+      <div class="preview-row">
+        <span class="preview-label" style="display: block; color: #777; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 10px; font-weight: bold;">
+          Message
+        </span>
+        <span class="preview-value" [class.empty]="!message" style="display: block; font-size: 1.4rem; font-family: 'Libre Baskerville', serif; color: #fff; line-height: 1.6;">
+          {{ message || 'Typing...' }}
+        </span>
+      </div>
     </div>
   </div>
 </div>

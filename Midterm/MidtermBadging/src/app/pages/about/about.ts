@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
-import { DatePipe } from '@angular/common';
+import { DatePipe, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [DatePipe],
-  templateUrl: './about.html'
+  // Requirement: Imports DatePipe and UpperCasePipe
+  imports: [DatePipe, UpperCasePipe], 
+  templateUrl: './about.html',
+  styleUrls: ['../../../styles.css']
 })
 export class AboutComponent {
   currentDate = new Date();
+  
+  // Text to demonstrate the pipe transformation
+  headingText = 'About This Portal';
 }

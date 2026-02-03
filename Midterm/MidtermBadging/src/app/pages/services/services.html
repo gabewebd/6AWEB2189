@@ -1,24 +1,44 @@
-<div class="card">
-  <div style="display:flex; justify-content:space-between; align-items:center;">
-    <h2>☰ Services</h2>
-    <input
-      #searchBox
-      type="text"
-      placeholder="Search by title or body..."
-      (input)="onSearch(searchBox.value)"
-      class="search-box"
-    >
+<div class="container">
+  <div class="header-row">
+    <h2>Our Services</h2>
+
+    <div class="search-wrapper">
+      <i class="ri-search-2-line"></i>
+      <input
+        #searchBox
+        type="text"
+        placeholder="Find a service..."
+        (input)="onSearch(searchBox.value)"
+        class="search-box"
+      >
+    </div>
   </div>
 
-  <div *ngIf="filteredPosts$ | async as posts; else loading">
-    <div *ngFor="let post of posts" class="service-item">
-      <h4>{{ post.title }}</h4>
-      <p>{{ post.body | truncate:80 }}</p>
+  <div *ngIf="errorMessage" style="color: red; padding: 20px; text-align: center; border: 1px solid red; border-radius: 12px; margin-bottom: 20px;">
+    <h3><i class="ri-error-warning-line"></i> Error</h3>
+    <p>{{ errorMessage }}</p>
+  </div>
+
+  <div *ngIf="filteredPosts$ | async as posts; else loading" class="grid-container">
+
+    <div *ngFor="let post of posts; let i = index" class="service-item">
+      <img [src]="'https://picsum.photos/400/300?random=' + i" class="service-img" alt="Service">
+
+      <div class="content">
+        <h4>{{ post.title | slice:0:20 }}...</h4>
+        <p>{{ post.body | truncate:80 }}</p>
+      </div>
     </div>
-    <div *ngIf="posts.length === 0">No services found.</div>
+
+    <div *ngIf="posts.length === 0 && !errorMessage" style="grid-column: 1/-1; text-align: center; padding: 50px; color: #888;">
+      <h3>No services found matching "{{ searchTerm$.value }}"</h3>
+    </div>
+
   </div>
 
   <ng-template #loading>
-    <p>Loading services...</p>
+    <div style="text-align: center; padding: 50px;">
+      <h3 style="color: #666;">Loading services...</h3>
+    </div>
   </ng-template>
 </div>

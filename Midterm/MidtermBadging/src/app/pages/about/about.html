@@ -1,7 +1,30 @@
-<div class="card">
-  <h2>ℹ️ About</h2>
-  <h3>ABOUT THIS PORTAL</h3>
-  <p>This is a sample Angular SPA demonstrating routing, shared services, observables, and pipes.</p>
-  <hr>
-  <p><strong>Today:</strong> {{ currentDate | date:'fullDate' }}</p>
+<div class="container">
+  <div class="about-grid">
+    
+    <div>
+      <h2>{{ headingText | uppercase }}</h2>
+      
+      <p>
+        This is a sample Angular SPA demonstrating routing, shared services, observables, and pipes in a high-performance environment. We aim to connect users with essential data seamlessly.
+      </p>
+
+      <div style="margin-top: 40px;">
+        <span class="badge" style="background: #000; color: #fff;">Server Status: Online</span>
+      </div>
+
+      <div style="margin-top: 30px; border-left: 4px solid #000; padding-left: 20px;">
+        <span style="display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #666; margin-bottom: 5px;">
+          Current Server Date
+        </span>
+        <strong style="font-size: 1.5rem; font-family: 'Libre Baskerville', serif;">
+          {{ currentDate | date:'fullDate' }}
+        </strong>
+      </div>
+    </div>
+
+    <div>
+      <img src="https://picsum.photos/id/180/800/600" alt="About Workspace" style="width: 100%; border-radius: 12px; filter: grayscale(100%); transition: filter 0.3s;" onmouseover="this.style.filter='grayscale(0%)'" onmouseout="this.style.filter='grayscale(100%)'">
+    </div>
+
+  </div>
 </div>

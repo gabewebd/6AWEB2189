@@ -1,29 +1,34 @@
 import { Component, inject } from '@angular/core';
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, NgFor, NgIf, SlicePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DataService } from '../../services/data';
 import { TruncatePipe } from '../../pipes/truncate-pipe';
-import { BehaviorSubject, combineLatest, map } from 'rxjs';
+import { BehaviorSubject, combineLatest, map, catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [AsyncPipe, NgFor, NgIf, FormsModule, TruncatePipe],
+  imports: [AsyncPipe, NgFor, NgIf, SlicePipe, FormsModule, TruncatePipe],
   templateUrl: './services.html',
-  styles: [`
-    .service-item { border-bottom: 1px solid #eee; padding: 10px 0; }
-    .search-box { padding: 8px; width: 100%; max-width: 300px; margin-bottom: 15px; }
-  `]
+  styleUrls: ['../../../styles.css'] // Ensures styles are linked
 })
 export class ServicesComponent {
   private dataService = inject(DataService);
 
-  // Stream for search input
+  // Requirement: Observable Stream for search
   searchTerm$ = new BehaviorSubject<string>('');
+  
+  // Requirement: Error state tracking
+  errorMessage = '';
 
-  // Combine API data + Search term to create a live filtered list
+  // Requirement: Combined Observable (Search + Data)
   filteredPosts$ = combineLatest([
-    this.dataService.posts$,
+    this.dataService.posts$.pipe(
+      catchError(err => {
+        this.errorMessage = 'Failed to load services. Please try again later.';
+        return of([]); // Return empty list on error
+      })
+    ),
     this.searchTerm$
   ]).pipe(
     map(([posts, term]) => {
