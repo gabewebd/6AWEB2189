@@ -17,7 +17,7 @@ export class ServicesComponent {
 
   // Requirement: Observable Stream for search
   searchTerm$ = new BehaviorSubject<string>('');
-  
+
   // Requirement: Error state tracking
   errorMessage = '';
 
