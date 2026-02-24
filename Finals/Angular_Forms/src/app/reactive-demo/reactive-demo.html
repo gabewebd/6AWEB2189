@@ -1,1 +1,68 @@
-<p>reactive-demo works!</p>
+<div class="page-layout">
+  <div class="card">
+    <h2>{{ title }}</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Username</label>
+        <input class="input" placeholder="Enter username" formControlName="username" />
+        @if (isInvalid('username')) { <small class="error">4-12 chars (letters/numbers/_)</small> }
+      </div>
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <input class="input" type="email" placeholder="Enter email" formControlName="email" />
+        @if (isInvalid('email')) { <small class="error">Enter a valid email</small> }
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input class="input" type="password" placeholder="Enter password" formControlName="password" />
+        @if (isInvalid('password')) { <small class="error">8+ chars (Upper, Lower, Number)</small> }
+      </div>
+
+      <div class="form-group">
+        <label>Account Role</label>
+        <select class="input" formControlName="role">
+          @for (r of roles; track r) { <option [value]="r">{{ r }}</option> }
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Gender</label>
+        <div class="radio-group">
+          <label><input type="radio" formControlName="gender" value="Male"> Male</label>
+          <label><input type="radio" formControlName="gender" value="Female"> Female</label>
+        </div>
+        @if (isInvalid('gender')) { <small class="error">Please select a gender</small> }
+      </div>
+
+      <div class="form-group">
+        <label>Employment Status</label>
+        <select class="input" formControlName="status">
+          <option value="Permanent">Permanent</option>
+          <option value="Probationary">Probationary</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Comments</label>
+        <textarea class="input" placeholder="Notes..." formControlName="comments" rows="3"></textarea>
+      </div>
+
+      <button class="btn" type="submit" [disabled]="form.invalid">Submit Application</button>
+    </form>
+  </div>
+
+  @if (submittedData) {
+    <div class="preview">
+      <h3>Submission Details</h3>
+      <p><strong>User:</strong> {{ submittedData.username }}</p>
+      <p><strong>Email:</strong> {{ submittedData.email }}</p>
+      <p><strong>Password:</strong> {{ submittedData.password }}</p>
+      <p><strong>Role:</strong> {{ submittedData.role }}</p>
+      <p><strong>Gender:</strong> {{ submittedData.gender }}</p>
+      <p><strong>Status:</strong> {{ submittedData.status }}</p>
+      <p><strong>Notes:</strong> {{ submittedData.comments }}</p>
+    </div>
+  }
+</div>

@@ -27,6 +27,7 @@ export class TemplateDemoComponent {
     console.log("Form Submitted!", {
       username: this.username,
       email: this.email,
+      password: this.password,
       role: this.role,
       gender: this.gender,
       status: this.status,
