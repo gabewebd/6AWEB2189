@@ -1,0 +1,63 @@
+<div class="container">
+  <h2>{{ title }}</h2>
+
+  <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" name="username" [(ngModel)]="username"
+             class="input-box" placeholder="Enter username" required>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" name="email" [(ngModel)]="email"
+             class="input-box" placeholder="Enter email" required email>
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" name="password" [(ngModel)]="password"
+             class="input-box" placeholder="Enter password" required minlength="6">
+    </div>
+
+    <div class="form-group">
+      <label>Role</label>
+      <select name="role" [(ngModel)]="role" class="input-box" required>
+        <option value="" disabled selected>Select role</option>
+        <option value="admin">Admin</option>
+        <option value="user">User</option>
+        <option value="guest">Guest</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Gender</label>
+      <div class="radio-group">
+        <label><input type="radio" name="gender" [(ngModel)]="ngModel" value="Male"> Male</label>
+        <label><input type="radio" name="gender" [(ngModel)]="ngModel" value="Female"> Female</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Status</label>
+      <select name="status" [(ngModel)]="status" class="input-box">
+        <option value="Permanent">Permanent</option>
+        <option value="Probationary">Probationary</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Comments</label>
+      <textarea name="comments" [(ngModel)]="comments" class="input-box" rows="3"></textarea>
+    </div>
+
+    <input type="submit" class="btn" value="Submit" [disabled]="!myForm.valid">
+  </form>
+
+  <div *ngIf="submitted" class="preview">
+    <h3>Form Data Received:</h3>
+    <p>User: {{ username }}</p>
+    <p>Status: {{ status }}</p>
+  </div>
+</div>
