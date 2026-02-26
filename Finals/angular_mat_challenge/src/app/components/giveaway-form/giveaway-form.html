@@ -111,8 +111,11 @@
 
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Secure Account Password</mat-label>
-        <input matInput formControlName="password" type="password" placeholder="Min 8 chars, starts with letter">
+        <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'" placeholder="Min 8 chars, starts with letter">
         <mat-icon matPrefix>lock</mat-icon>
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword" type="button">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
         <mat-error *ngIf="giveawayForm.get('password')?.hasError('passwordComplexity')">
           Min 8 chars, alphanumeric, starts with letter
         </mat-error>

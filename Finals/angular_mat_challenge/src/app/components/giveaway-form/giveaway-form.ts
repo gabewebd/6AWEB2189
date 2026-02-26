@@ -35,6 +35,8 @@ export class GiveawayFormComponent {
   private dialog = inject(MatDialog);
 
   giveawayForm: FormGroup;
+  hidePassword = true;
+
 
   constructor() {
     this.giveawayForm = this.fb.group({
