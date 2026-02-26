@@ -1,0 +1,131 @@
+<mat-card class="giveaway-card">
+  <div class="card-header">
+    <div class="header-content">
+      <h2 class="form-title">Enter to Win</h2>
+      <p class="form-subtitle">Complete your entry for the <span class="highlight">Lifetime Premium</span> Subscription
+      </p>
+    </div>
+  </div>
+
+  <mat-card-content>
+    <form [formGroup]="giveawayForm" (ngSubmit)="onSubmit()" class="entry-form">
+
+      <!-- Personal Identification -->
+      <div class="form-section-title">
+        <mat-icon>person</mat-icon>
+        <span>Personal Identity</span>
+      </div>
+
+      <div class="form-grid">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Full Name</mat-label>
+          <input matInput formControlName="fullName" placeholder="John Doe">
+          <mat-icon matPrefix>badge</mat-icon>
+          <mat-error *ngIf="giveawayForm.get('fullName')?.errors">
+            Valid full name is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Gamer Tag</mat-label>
+          <input matInput formControlName="gamerTag" placeholder="EliteGamer99">
+          <mat-icon matPrefix>sports_esports</mat-icon>
+          <mat-error *ngIf="giveawayForm.get('gamerTag')?.errors">
+            Min 3 characters
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="MM/DD/YYYY">
+          <mat-icon matPrefix>cake</mat-icon>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="giveawayForm.get('dob')?.hasError('invalidAge')">
+            Must be 18+
+          </mat-error>
+          <mat-error *ngIf="giveawayForm.get('dob')?.hasError('required')">
+            DOB is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Contact Details -->
+      <div class="form-section-title">
+        <mat-icon>contact_mail</mat-icon>
+        <span>Contact Details</span>
+      </div>
+
+      <div class="form-grid">
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Email Address</mat-label>
+          <input matInput formControlName="email" type="email" placeholder="gamer@pro.com">
+          <mat-icon matPrefix>email</mat-icon>
+          <mat-error *ngIf="giveawayForm.get('email')?.hasError('email')">
+            Enter a valid email
+          </mat-error>
+          <mat-error *ngIf="giveawayForm.get('email')?.hasError('required')">
+            Required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Contact Number</mat-label>
+          <input matInput formControlName="contactNumber" placeholder="+1 234 567 890">
+          <mat-icon matPrefix>phone</mat-icon>
+          <mat-error *ngIf="giveawayForm.get('contactNumber')?.hasError('invalidPhone')">
+            10-14 digits required
+          </mat-error>
+          <mat-error *ngIf="giveawayForm.get('contactNumber')?.hasError('required')">
+            Required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Physical Address</mat-label>
+          <textarea matInput formControlName="address" rows="1" placeholder="123 Gaming Street, NY, USA"></textarea>
+          <mat-icon matPrefix>home</mat-icon>
+          <mat-error *ngIf="giveawayForm.get('address')?.errors">
+            Valid shipping address is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Social Media @Handle</mat-label>
+          <input matInput formControlName="socialMedia" placeholder="@GamerPro">
+          <mat-icon matPrefix>alternate_email</mat-icon>
+          <mat-error *ngIf="giveawayForm.get('socialMedia')?.hasError('invalidHandle')">
+            Must start with @
+          </mat-error>
+          <mat-error *ngIf="giveawayForm.get('socialMedia')?.hasError('required')">
+            Required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Security -->
+      <div class="form-section-title">
+        <mat-icon>security</mat-icon>
+        <span>Security</span>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Secure Account Password</mat-label>
+        <input matInput formControlName="password" type="password" placeholder="Min 8 chars, starts with letter">
+        <mat-icon matPrefix>lock</mat-icon>
+        <mat-error *ngIf="giveawayForm.get('password')?.hasError('passwordComplexity')">
+          Min 8 chars, alphanumeric, starts with letter
+        </mat-error>
+        <mat-error *ngIf="giveawayForm.get('password')?.hasError('required')">
+          Password required
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-flat-button color="primary" type="submit" [disabled]="giveawayForm.invalid" class="submit-btn">
+        <mat-icon>verified</mat-icon>
+        SUBMIT ENTRY
+        <mat-icon class="arrow-icon">arrow_forward</mat-icon>
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

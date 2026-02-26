@@ -1,0 +1,56 @@
+<header class="toolbar">
+  <div class="logo-container">
+    <svg class="twitch-logo" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z" />
+    </svg>
+    <span class="logo">twitch</span>
+  </div>
+
+  <div class="spacer"></div>
+
+  <div class="theme-switch" aria-label="Toggle theme">
+    <mat-icon [class.active-icon]="!isDarkMode()" class="light-icon">light_mode</mat-icon>
+    <mat-slide-toggle [checked]="isDarkMode()" (change)="toggleTheme()" class="theme-toggle"></mat-slide-toggle>
+    <mat-icon [class.active-icon]="isDarkMode()" class="dark-icon">dark_mode</mat-icon>
+  </div>
+</header>
+
+<main class="content">
+  <div class="split-container">
+    <!-- Left Side - Hero Section -->
+    <section class="hero-section">
+      <div class="hero-bg-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-badge">EXCLUSIVE GIVEAWAY</div>
+        <h1 class="hero-title">Win a <span class="highlight">Lifetime</span> Premium Subscription</h1>
+        <p class="hero-subtitle">Join the elite ranks of Twitch members. Enter now for your chance to unlock
+          unlimited access to premium features, exclusive content, and priority support.</p>
+
+        <div class="hero-features">
+          <div class="feature">
+            <mat-icon>verified</mat-icon>
+            <span>Instant Access</span>
+          </div>
+          <div class="feature">
+            <mat-icon>bolt</mat-icon>
+            <span>Priority Support</span>
+          </div>
+          <div class="feature">
+            <mat-icon>star</mat-icon>
+            <span>Exclusive Content</span>
+          </div>
+        </div>
+
+        <div class="hero-footer">
+          <p class="deadline">🎉 Giveaway ends soon! Don't miss your chance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Side - Form -->
+    <section class="form-section">
+      <app-giveaway-form></app-giveaway-form>
+    </section>
+  </div>
+</main>

@@ -1,0 +1,264 @@
+/* ========================================
+   GIVEAWAY FORM - Professional Style
+   ======================================== */
+
+.giveaway-card {
+  width: 100%;
+  max-width: 950px;
+  padding: 1.5rem 2.5rem;
+  border-radius: 16px;
+  background: rgba(14, 14, 16, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  font-family: 'Outfit', sans-serif;
+  overflow: hidden;
+}
+
+:host-context(body.light-mode) .giveaway-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+:host-context(body.light-mode) .card-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.header-content {
+  text-align: left;
+}
+
+.form-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+:host-context(body.light-mode) .form-title {
+  color: #0e0e10;
+}
+
+.form-subtitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  font-weight: 400;
+}
+
+.form-subtitle .highlight {
+  color: #bf94ff;
+  font-weight: 600;
+}
+
+:host-context(body.light-mode) .form-subtitle {
+  color: rgba(14, 14, 16, 0.7);
+}
+
+.form-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0.25rem 0;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.form-section-title mat-icon {
+  font-size: 1.1rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  color: #9146FF;
+}
+
+.form-section-title span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+:host-context(body.light-mode) .form-section-title {
+  border-bottom-color: rgba(0, 0, 0, 0.05);
+}
+
+:host-context(body.light-mode) .form-section-title span {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.entry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.half-width {
+  grid-column: span 1;
+}
+
+/* ========================================
+   FORM FIELD STYLING - Clean Material Integration
+   ======================================== */
+
+::ng-deep .mat-mdc-form-field {
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+/* Base field wrapper - subtle background without breaking alignment */
+::ng-deep .mat-mdc-text-field-wrapper {
+  background-color: rgba(255, 255, 255, 0.03) !important;
+  border-radius: 8px 8px 0 0 !important;
+  transition: background-color 0.2s ease;
+}
+
+:host-context(body.light-mode) ::ng-deep .mat-mdc-text-field-wrapper {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+::ng-deep .mat-mdc-form-field.mat-focused .mat-mdc-text-field-wrapper {
+  background-color: rgba(145, 70, 255, 0.06) !important;
+}
+
+/* Label & Placeholder Colors */
+::ng-deep .mat-mdc-form-field-label {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+:host-context(body.light-mode) ::ng-deep .mat-mdc-form-field-label {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+::ng-deep .mat-mdc-form-field.mat-focused .mat-mdc-form-field-label {
+  color: #bf94ff !important;
+}
+
+/* Icon Prefix Styling */
+::ng-deep .mat-mdc-form-field-prefix {
+  padding-right: 8px;
+}
+
+::ng-deep .mat-mdc-form-field-prefix mat-icon {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.2rem;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+:host-context(body.light-mode) ::ng-deep .mat-mdc-form-field-prefix mat-icon {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+::ng-deep .mat-mdc-form-field.mat-focused .mat-mdc-form-field-prefix mat-icon {
+  color: #9146FF;
+}
+
+/* Input Text Styling */
+::ng-deep .mat-mdc-input-element {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+:host-context(body.light-mode) ::ng-deep .mat-mdc-input-element {
+  color: #0e0e10 !important;
+}
+
+/* ========================================
+   DATE PICKER & TEXTAREA
+   ======================================== */
+
+::ng-deep .mat-datepicker-toggle {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+:host-context(body.light-mode) ::ng-deep .mat-datepicker-toggle {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+::ng-deep textarea.mat-mdc-input-element {
+  min-height: auto !important;
+  padding: 4px 0 !important;
+  margin: 0 !important;
+  resize: none;
+  vertical-align: middle;
+}
+
+/* Ensure prefix icon in textarea is centered */
+::ng-deep .mat-mdc-form-field-has-icon-prefix.mat-mdc-form-field-type-mat-input textarea.mat-mdc-input-element {
+  margin-top: 0 !important;
+}
+
+::ng-deep .mat-mdc-form-field-prefix {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* ========================================
+   SUBMIT BUTTON
+   ======================================== */
+
+.submit-btn {
+  margin-top: 1.5rem;
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, #9146FF 0%, #7c3aed 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Outfit', sans-serif;
+  box-shadow: 0 10px 20px -5px rgba(145, 70, 255, 0.4);
+}
+
+.submit-btn:hover:not([disabled]) {
+  background: linear-gradient(135deg, #a46AFF, #8b5cf6);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -8px rgba(145, 70, 255, 0.5);
+}
+
+.submit-btn:active:not([disabled]) {
+  transform: translateY(0);
+}
+
+.submit-btn mat-icon {
+  font-size: 1.3rem;
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.submit-btn .arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.submit-btn:hover:not([disabled]) .arrow-icon {
+  transform: translateX(4px);
+}
