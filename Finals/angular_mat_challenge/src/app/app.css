@@ -276,10 +276,28 @@
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.45);
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.deadline mat-icon {
+  font-size: 1.1rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  color: #9146FF;
+}
+
+.deadline strong {
+  color: #bf94ff;
 }
 
 :host-context(body.light-mode) .deadline {
   color: rgba(0, 0, 0, 0.5);
+}
+
+:host-context(body.light-mode) .deadline strong {
+  color: #7c3aed;
 }
 
 /* ========================================

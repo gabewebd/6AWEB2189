@@ -15,7 +15,17 @@ import { MatIconModule } from '@angular/material/icon';
 export class App {
   protected readonly title = signal('angular_mat_challenge');
   isDarkMode = signal(true);
+  deadline = signal<Date>(new Date('2026-03-15T23:59:59'));
   private renderer = inject(Renderer2);
+
+  get deadlineString(): string {
+    return this.deadline().toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  }
 
   toggleTheme() {
     this.isDarkMode.update(val => !val);
