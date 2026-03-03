@@ -1,0 +1,51 @@
+<main class="books">
+  <header class="books__header">
+    <h1 class="books__title">Books</h1>
+  </header>
+
+  <section class="books__form">
+    <div class="form-grid">
+      <input type="text" placeholder="Title" [(ngModel)]="newBook" name="title" />
+      <input type="text" placeholder="Description" [(ngModel)]="newDesc" name="desc" />
+      <input type="text" placeholder="Author" [(ngModel)]="newAuthor" name="author" />
+      <input type="number" placeholder="Year Published" [(ngModel)]="newYear" name="year" />
+      <input type="number" placeholder="Price" [(ngModel)]="newPrice" name="price" />
+
+      <button 
+        class="btn btn--primary" 
+        (click)="addBook()" 
+        [disabled]="!newBook || !newDesc || !newAuthor || !newYear || !newPrice">
+        Add Book
+      </button>
+    </div>
+  </section>
+
+  <ul class="books__list">
+    @for (book of books; track book.id) {
+      <li class="book-card">
+        <div class="book-card__content">
+          <h3 class="book-card__title">{{ book.title }}</h3>
+          
+          <p class="book-card__desc">
+            {{ book.description || book.desc || 'No description provided' }}
+          </p>
+
+          <p class="book-card__meta-info">
+            <span class="author-tag">{{ book.author || 'Unknown Author' }}</span> 
+            • 
+            <span class="year-tag">{{ book.yearPublished || book.year || 'N/A' }}</span>
+          </p>
+        </div>
+
+        <div class="book-card__meta">
+          <span class="book-card__price">${{ book.price }}</span>
+          <button class="btn btn--danger" (click)="deleteBook(book.id)">
+            Delete
+          </button>
+        </div>
+      </li>
+    } @empty {
+      <li class="books__empty">No books available in the collection.</li>
+    }
+  </ul>
+</main>
