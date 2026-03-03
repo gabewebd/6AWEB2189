@@ -1,287 +1,51 @@
-/* =========================================
-   1. Root & Design System (Bookshop Theme)
-========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;1,700;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :host {
-  /* Keep all your exact same color variables here */
-  --color-primary: #2c5e4f; 
-  --color-primary-hover: #1f4539;
-  --color-success: #588157; 
-  --color-danger: #e07a5f; 
-  --color-text: #2b2d2f; 
-  --color-text-muted: #797a7e; 
-  --color-border: #e6e4df; 
-  --color-bg: #f5f4f0; 
-  --color-card: #ffffff; 
-
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 10px;
-
-  --shadow-sm: 0 2px 5px rgba(60, 50, 40, 0.04);
-  --shadow-md: 0 10px 25px rgba(60, 50, 40, 0.08);
-  --shadow-focus: 0 0 0 3px rgba(44, 94, 79, 0.15);
-
-  /* FIX: Let the host fill the entire screen */
   display: block;
-  width: 100%;
   min-height: 100vh;
-  background: var(--color-bg); 
-  color: var(--color-text);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Georgia', serif; 
-  box-sizing: border-box;
-}
-/* =========================================
-   2. Header
-========================================= */
-
-/* FIX: Add this new container rule for your <main> tag */
-.books {
-  max-width: 1300px; /* Increased width so inputs aren't squished */
-  margin: 0 auto; /* Centers the content */
-  padding: 3rem 2rem; /* Replaces margin to prevent top clipping */
-  box-sizing: border-box;
+  background-color: #f8f8f6;
+  background-image:
+    radial-gradient(#eeeee9 1.2px, transparent 1.2px),
+    linear-gradient(to right, #f2f2f0 1px, transparent 1px);
+  background-size: 55px 55px;
+  color: #1c1c1c;
+  font-family: 'Inter', sans-serif;
 }
 
-.books__header {
-  margin-bottom: 2.5rem;
-  border-bottom: 2px solid var(--color-border);
-  padding-bottom: 1rem;
-}
+@layer components {
+  .label-classy {
+    @apply block text-[10px] uppercase tracking-[0.4em] text-stone-400 mb-4 font-black;
+  }
 
-.books__title {
-  font-size: 2.2rem;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  color: var(--color-primary);
-  margin: 0;
-}
+  .input-field-classy {
+    @apply w-full bg-transparent border-b-2 border-stone-900/10 py-4 outline-none
+           transition-all duration-500 focus:border-library-green
+           placeholder:text-stone-200 text-stone-800;
+  }
 
-/* =========================================
-   3. Form Section (The Intake Desk)
-========================================= */
+  /* Substantial button for the bottom row */
+  .btn-archive {
+    @apply bg-stone-900 text-white py-6 rounded-[1.5rem] text-[12px] uppercase
+           tracking-[0.6em] font-black hover:bg-library-green transition-all
+           duration-500 shadow-2xl shadow-stone-900/40 active:scale-95
+           hover:-translate-y-1;
+  }
 
-.books__form {
-  background: var(--color-card);
-  border: 1px solid var(--color-border);
-  padding: 2rem;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 3rem;
-}
-
-/* Refined Grid: Better spacing for inputs */
-.form-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1.5fr 1fr 110px 100px auto;
-  gap: 1rem;
-  align-items: center;
-}
-
-@media (max-width: 1024px) {
-  .form-grid {
-    grid-template-columns: 1fr 1fr 1fr;
+  .icon-btn {
+    @apply p-4 text-stone-300 bg-white/90 rounded-full transition-all
+           hover:bg-white hover:text-stone-900 active:scale-90;
   }
 }
 
-@media (max-width: 640px) {
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
+.animate-fade-up {
+  animation: fadeUp 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
-/* =========================================
-   4. Inputs
-========================================= */
-
-input {
-  width: 100%;
-  padding: 0.85rem 1rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  font-size: 0.95rem;
-  background: #faf9f7; /* Very light parchment inside inputs */
-  color: var(--color-text);
-  transition: all 0.25s ease;
-  box-sizing: border-box;
-}
-
-input::placeholder {
-  color: #a3a3a0;
-}
-
-input:focus {
-  outline: none;
-  background: var(--color-card);
-  border-color: var(--color-primary);
-  box-shadow: var(--shadow-focus);
-}
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
-/* =========================================
-   5. Book List
-========================================= */
-
-.books__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.books__empty {
-  text-align: center;
-  padding: 4rem 0;
-  color: var(--color-text-muted);
-  font-size: 1.1rem;
-  font-style: italic;
-  background: transparent;
-  border: 2px dashed var(--color-border);
-  border-radius: var(--radius-lg);
-}
-
-/* =========================================
-   6. Book Card (The Books on the Shelf)
-========================================= */
-
-.book-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--color-card);
-  border: 1px solid var(--color-border);
-  /* The 'Spine' detail */
-  border-left: 5px solid var(--color-primary); 
-  padding: 1.5rem;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-left-color 0.2s ease;
-  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.book-card:hover {
-  transform: translateY(-3px) scale(1.005);
-  box-shadow: var(--shadow-md);
-  border-left-color: var(--color-accent, #d4a373); /* Flashes gold on hover */
-}
-
-.book-card__content {
-  flex: 1;
-  padding-right: 1.5rem;
-}
-
-.book-card__title {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--color-text);
-}
-
-.book-card__desc {
-  margin: 0.4rem 0 0;
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
-  line-height: 1.5;
-}
-
-.book-card__meta-info {
-  margin-top: 0.6rem;
-  font-size: 0.85rem;
-  color: var(--color-primary);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* Right Side */
-
-.book-card__meta {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.book-card__price {
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: var(--color-text);
-  background: #f0eee9;
-  padding: 0.4rem 0.8rem;
-  border-radius: var(--radius-sm);
-}
-
-/* =========================================
-   7. Buttons
-========================================= */
-
-.btn {
-  border: none;
-  border-radius: var(--radius-md);
-  padding: 0.75rem 1.25rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.btn:active {
-  transform: scale(0.96);
-}
-
-/* Primary Button (Add Book) */
-.btn--primary {
-  background: var(--color-primary);
-  color: #fff;
-  box-shadow: 0 2px 4px rgba(44, 94, 79, 0.2);
-}
-
-.btn--primary:hover:not(:disabled) {
-  background: var(--color-primary-hover);
-  box-shadow: 0 4px 8px rgba(44, 94, 79, 0.3);
-}
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  background: #c2c0bb;
-  box-shadow: none;
-  color: #fff;
-}
-
-/* Danger Button */
-.btn--danger {
-  background: transparent;
-  border: 1px solid var(--color-danger);
-  color: var(--color-danger);
-}
-
-.btn--danger:hover {
-  background: var(--color-danger);
-  color: #fff;
-}
-
-/* =========================================
-   8. Animations
-========================================= */
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
 }

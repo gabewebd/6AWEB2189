@@ -1,51 +1,91 @@
-<main class="books">
-  <header class="books__header">
-    <h1 class="books__title">Books</h1>
+<main class="max-w-[1900px] mx-auto px-8 md:px-24 py-16 animate-fade-up">
+
+  <header class="mb-20 border-b-2 border-stone-900/10 pb-10">
+    <h1 class="font-display italic tracking-tighter text-library-green"
+        style="font-size: clamp(5rem, 10vw, 12rem); line-height: 0.8; margin-left: -0.04em;">
+      Curator<span class="text-stone-400 not-italic">.</span>
+    </h1>
+
+    <div class="flex justify-between items-center mt-8">
+      <p class="font-body text-stone-500 uppercase tracking-[0.6em] text-[10px] font-black">
+        Personal Library & Valuation Ledger
+      </p>
+      <div class="font-display italic text-3xl text-stone-400">Index Vol. {{ books.length }}</div>
+    </div>
   </header>
 
-  <section class="books__form">
-    <div class="form-grid">
-      <input type="text" placeholder="Title" [(ngModel)]="newBook" name="title" />
-      <input type="text" placeholder="Description" [(ngModel)]="newDesc" name="desc" />
-      <input type="text" placeholder="Author" [(ngModel)]="newAuthor" name="author" />
-      <input type="number" placeholder="Year Published" [(ngModel)]="newYear" name="year" />
-      <input type="number" placeholder="Price" [(ngModel)]="newPrice" name="price" />
+  <section class="mb-24 bg-white/40 p-12 rounded-[3rem] border border-white/60 backdrop-blur-2xl shadow-sm">
+    <div class="grid grid-cols-1 md:grid-cols-10 gap-x-12 gap-y-10 items-end">
+      <div class="md:col-span-3">
+        <label class="label-classy">Title</label>
+        <input type="text" [(ngModel)]="newBook" class="input-field-classy font-display italic text-2xl" placeholder="e.g. The Great Gatsby" />
+      </div>
 
-      <button 
-        class="btn btn--primary" 
-        (click)="addBook()" 
-        [disabled]="!newBook || !newDesc || !newAuthor || !newYear || !newPrice">
-        Add Book
+      <div class="md:col-span-3">
+        <label class="label-classy">Description</label>
+        <input type="text" [(ngModel)]="newDesc" class="input-field-classy text-base italic" placeholder="Short summary..." />
+      </div>
+
+      <div class="md:col-span-2">
+        <label class="label-classy">Author</label>
+        <input type="text" [(ngModel)]="newAuthor" class="input-field-classy text-base" placeholder="Writer's name" />
+      </div>
+
+      <div class="md:col-span-1">
+        <label class="label-classy">Year</label>
+        <input type="number" [(ngModel)]="newYear" class="input-field-classy text-base text-center" placeholder="1925" />
+      </div>
+
+      <div class="md:col-span-1">
+        <label class="label-classy">Price</label>
+        <input type="number" [(ngModel)]="newPrice" class="input-field-classy text-base text-center" placeholder="$" />
+      </div>
+    </div>
+
+    <div class="mt-12 flex justify-center">
+      <button (click)="submitForm()" class="btn-archive px-20">
+        {{ isEditing ? 'Update Entry' : 'Archive to Ledger' }}
       </button>
+      @if (isEditing) {
+        <button (click)="cancelEdit()" class="ml-4 px-8 py-5 text-[10px] uppercase tracking-widest text-stone-400 hover:text-stone-900 transition-all font-black">
+          Cancel
+        </button>
+      }
     </div>
   </section>
 
-  <ul class="books__list">
+  <div class="space-y-16">
     @for (book of books; track book.id) {
-      <li class="book-card">
-        <div class="book-card__content">
-          <h3 class="book-card__title">{{ book.title }}</h3>
-          
-          <p class="book-card__desc">
-            {{ book.description || book.desc || 'No description provided' }}
-          </p>
-
-          <p class="book-card__meta-info">
-            <span class="author-tag">{{ book.author || 'Unknown Author' }}</span> 
-            • 
-            <span class="year-tag">{{ book.yearPublished || book.year || 'N/A' }}</span>
+      <div class="group flex flex-col md:flex-row items-start justify-between border-b border-stone-300/20 pb-12 transition-all hover:bg-white/20 px-10 rounded-3xl">
+        <div class="flex-1 pr-24">
+          <div class="flex flex-col gap-1">
+            <h2 class="font-display text-6xl text-stone-800 tracking-tight group-hover:text-library-green transition-colors leading-tight">
+              {{ book.title }}
+            </h2>
+            <span class="text-library-gold text-xs font-black uppercase tracking-[0.4em] italic opacity-60">
+              by {{ book.author }}
+            </span>
+          </div>
+          <p class="text-stone-500 font-body text-xl mt-6 italic leading-relaxed max-w-[1200px]">
+            "{{ book.description || book.desc || 'No inscription recorded.' }}"
           </p>
         </div>
 
-        <div class="book-card__meta">
-          <span class="book-card__price">${{ book.price }}</span>
-          <button class="btn btn--danger" (click)="deleteBook(book.id)">
-            Delete
-          </button>
+        <div class="flex items-center gap-16 mt-10 md:mt-0 shrink-0 self-center">
+          <div class="text-right">
+            <span class="block text-[10px] uppercase tracking-[0.4em] text-stone-400 font-black mb-1">Valuation</span>
+            <span class="font-display text-6xl text-stone-900">${{ book.price }}</span>
+          </div>
+          <div class="flex gap-4">
+            <button (click)="editBook(book)" class="icon-btn hover:text-library-green shadow-md">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+            </button>
+            <button (click)="deleteBook(book.id)" class="icon-btn hover:text-red-800 shadow-md">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+            </button>
+          </div>
         </div>
-      </li>
-    } @empty {
-      <li class="books__empty">No books available in the collection.</li>
+      </div>
     }
-  </ul>
+  </div>
 </main>
