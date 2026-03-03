@@ -1,0 +1,6 @@
+echo "node_modules/
+.angular/
+dist/
+.vscode/
+.env
+*.log" > .gitignore
